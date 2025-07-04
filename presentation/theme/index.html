@@ -1,0 +1,2041 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation complète du lab de sécurité Active Directory inspiré de la mythologie grecque">
+      
+      
+        <meta name="author" content="PantheonLab Team">
+      
+      
+        <link rel="canonical" href="https://pantheonlab.github.io/presentation/theme/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../../installation/prerequisites/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Thématique - PantheonLab Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#thematique-mythologique" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="PantheonLab Documentation" class="md-header__button md-logo" aria-label="PantheonLab Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PantheonLab Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Thématique
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Basculer vers le thème sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Basculer vers le thème sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Basculer vers le thème clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Basculer vers le thème clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bbuddha/vulnad" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PantheonLab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
+          
+  
+  
+  Présentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/prerequisites/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../writeup/introduction/" class="md-tabs__link">
+          
+  
+  
+  Writeup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/commands/" class="md-tabs__link">
+          
+  
+  
+  Références
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PantheonLab Documentation" class="md-nav__button md-logo" aria-label="PantheonLab Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PantheonLab Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bbuddha/vulnad" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PantheonLab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Présentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Présentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vue d'ensemble
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Thématique
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Thématique
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lunivers-du-pantheon-grec" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏛️ L'Univers du Panthéon Grec
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-narratif" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎭 Concept Narratif
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Concept Narratif">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lhistoire-du-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'Histoire du Lab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immersion-totale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immersion Totale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-dieux-et-leurs-vulnerabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      👑 Les Dieux et Leurs Vulnérabilités
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👑 Les Dieux et Leurs Vulnérabilités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zeus-le-roi-des-dieux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zeus - Le Roi des Dieux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hera-la-reine-jalouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Héra - La Reine Jalouse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hermes-le-messager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hermès - Le Messager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#athena-la-deesse-de-la-sagesse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Athéna - La Déesse de la Sagesse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ares-le-dieu-de-la-guerre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arès - Le Dieu de la Guerre
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aphrodite-la-deesse-de-lamour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aphrodite - La Déesse de l'Amour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hades-le-dieu-des-enfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadès - Le Dieu des Enfers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-thematique" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Architecture Thématique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Architecture Thématique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topographie-mythologique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topographie Mythologique
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correspondance-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Correspondance Technique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elements-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Éléments Visuels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 Éléments Visuels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#images-et-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Images et Assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface Utilisateur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios-narratifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      📜 Scénarios Narratifs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 Scénarios Narratifs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le Prologue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-missions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les Missions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les Missions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-1-lentree-dans-lolympe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 1 : L'Entrée dans l'Olympe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-2-le-message-dhermes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 2 : Le Message d'Hermès
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-3-la-sagesse-dathena" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 3 : La Sagesse d'Athéna
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-4-le-trone-de-zeus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 4 : Le Trône de Zeus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avantages-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Avantages Pédagogiques
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Avantages Pédagogiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engagement-emotionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engagement Émotionnel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apprentissage-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apprentissage Structuré
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motivation-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation Continue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-sur-lapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 Impact sur l'Apprentissage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌟 Impact sur l&#39;Apprentissage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retention-des-connaissances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rétention des Connaissances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfert-de-competences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfert de Compétences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prérequis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation rapide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/deployment.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Déploiement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Writeup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Writeup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/enumeration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Énumération
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/exploitation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploitation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/privesc.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Élévation de privilèges
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/conclusion.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Références
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Références
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Commandes utiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/resources.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ressources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lunivers-du-pantheon-grec" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏛️ L'Univers du Panthéon Grec
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-narratif" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎭 Concept Narratif
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎭 Concept Narratif">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lhistoire-du-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'Histoire du Lab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#immersion-totale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Immersion Totale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-dieux-et-leurs-vulnerabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      👑 Les Dieux et Leurs Vulnérabilités
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👑 Les Dieux et Leurs Vulnérabilités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zeus-le-roi-des-dieux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zeus - Le Roi des Dieux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hera-la-reine-jalouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Héra - La Reine Jalouse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hermes-le-messager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hermès - Le Messager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#athena-la-deesse-de-la-sagesse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Athéna - La Déesse de la Sagesse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ares-le-dieu-de-la-guerre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arès - Le Dieu de la Guerre
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aphrodite-la-deesse-de-lamour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aphrodite - La Déesse de l'Amour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hades-le-dieu-des-enfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadès - Le Dieu des Enfers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-thematique" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Architecture Thématique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Architecture Thématique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topographie-mythologique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topographie Mythologique
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correspondance-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Correspondance Technique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elements-visuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Éléments Visuels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 Éléments Visuels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#images-et-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Images et Assets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface Utilisateur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios-narratifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      📜 Scénarios Narratifs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 Scénarios Narratifs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-prologue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le Prologue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-missions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Les Missions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les Missions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-1-lentree-dans-lolympe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 1 : L'Entrée dans l'Olympe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-2-le-message-dhermes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 2 : Le Message d'Hermès
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-3-la-sagesse-dathena" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 3 : La Sagesse d'Athéna
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-4-le-trone-de-zeus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mission 4 : Le Trône de Zeus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avantages-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Avantages Pédagogiques
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Avantages Pédagogiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engagement-emotionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engagement Émotionnel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apprentissage-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apprentissage Structuré
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motivation-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motivation Continue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-sur-lapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 Impact sur l'Apprentissage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌟 Impact sur l&#39;Apprentissage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retention-des-connaissances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rétention des Connaissances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfert-de-competences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfert de Compétences
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="thematique-mythologique">Thématique Mythologique</h1>
+<h2 id="lunivers-du-pantheon-grec">🏛️ L'Univers du Panthéon Grec</h2>
+<p>PantheonLab plonge les utilisateurs dans un univers unique où la cybersécurité rencontre la mythologie grecque. Cette approche thématique transforme l'apprentissage technique en une <strong>quête épique</strong> à travers l'Olympe numérique.</p>
+<h2 id="concept-narratif">🎭 Concept Narratif</h2>
+<h3 id="lhistoire-du-lab">L'Histoire du Lab</h3>
+<p>Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de moderniser leur royaume en adoptant les technologies numériques. Cependant, cette transition a introduit des vulnérabilités que les forces du chaos cherchent à exploiter. Le pentester incarne un <strong>héros moderne</strong> chargé de sécuriser le Panthéon numérique.</p>
+<h3 id="immersion-totale">Immersion Totale</h3>
+<p>Chaque élément du lab est pensé pour renforcer l'immersion :</p>
+<ul>
+<li><strong>Noms de domaine</strong> : <code>pantheon.god</code>, <code>olympe.god</code></li>
+<li><strong>Messages d'erreur</strong> : Références aux légendes grecques</li>
+<li><strong>Indices cachés</strong> : Liés aux mythes et épopées</li>
+<li><strong>Interface utilisateur</strong> : Thème visuel cohérent</li>
+</ul>
+<h2 id="les-dieux-et-leurs-vulnerabilites">👑 Les Dieux et Leurs Vulnérabilités</h2>
+<h3 id="zeus-le-roi-des-dieux">Zeus - Le Roi des Dieux</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Roi de l&#39;Olympe</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dieu du ciel et de la foudre</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Autorité suprême</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pouvoir absolu</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contrôleur de domaine (DC01)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Accès administrateur</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DCSync possible</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Golden Ticket attack</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Zeus détient les clés du royaume numérique</span>
+</code></pre></div>
+<h3 id="hera-la-reine-jalouse">Héra - La Reine Jalouse</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reine de l&#39;Olympe</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Déesse du mariage</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Jalousie légendaire</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Politiques strictes</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Politiques de sécurité rigides</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Audit logging strict</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contrôle d&#39;accès serré</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monitoring avancé</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Héra surveille chaque mouvement dans le domaine</span>
+</code></pre></div>
+<h3 id="hermes-le-messager">Hermès - Le Messager</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Messager des dieux</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dieu du commerce et des voleurs</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Rapidité et ruse</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Communication</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Communication non sécurisée</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Credentials faibles (hermes:y)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services de messagerie</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transport de données</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hermès a laissé ses secrets exposés</span>
+</code></pre></div>
+<h3 id="athena-la-deesse-de-la-sagesse">Athéna - La Déesse de la Sagesse</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Déesse de la sagesse</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stratégie militaire</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Protection et conseil</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Intelligence</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Logs et monitoring</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Systèmes de détection</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Analyse de sécurité</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Intelligence threat</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Athéna collecte des informations stratégiques</span>
+</code></pre></div>
+<h3 id="ares-le-dieu-de-la-guerre">Arès - Le Dieu de la Guerre</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dieu de la guerre</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Violence et destruction</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Attaques directes</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Force brute</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Services d&#39;attaque</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Exploitation directe</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Brute force</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Attaques réseau</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arès héberge des outils d&#39;offensive</span>
+</code></pre></div>
+<h3 id="aphrodite-la-deesse-de-lamour">Aphrodite - La Déesse de l'Amour</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Déesse de l&#39;amour et de la beauté</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Séduction et charme</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Influence sociale</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manipulation</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Social engineering</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Phishing campaigns</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manipulation psychologique</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Influence sur les utilisateurs</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aphrodite utilise la séduction numérique</span>
+</code></pre></div>
+<h3 id="hades-le-dieu-des-enfers">Hadès - Le Dieu des Enfers</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">Attributs Mythologiques</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dieu des enfers</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gardien des secrets</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Richesse souterraine</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ombre et mystère</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">Vulnérabilité Associée</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Données sensibles</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secrets cachés</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Accès souterrain</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Persistence</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nt">Scénario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hadès garde les trésors les plus précieux</span>
+</code></pre></div>
+<h2 id="architecture-thematique">🏗️ Architecture Thématique</h2>
+<h3 id="topographie-mythologique">Topographie Mythologique</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>graph TB
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    subgraph &quot;Olympe - Niveau Céleste&quot;
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        A[Zeus - DC01&lt;br/&gt;Contrôleur de domaine]
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        B[Héra - Politiques&lt;br/&gt;Sécurité stricte]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        C[Athéna - Monitoring&lt;br/&gt;Logs et détection]
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    end
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    subgraph &quot;Terre - Niveau Mortel&quot;
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        D[Olympe - WordPress&lt;br/&gt;Point d&#39;entrée]
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        E[Hermès - Communication&lt;br/&gt;Services vulnérables]
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        F[Arès - Attaques&lt;br/&gt;Services d&#39;offensive]
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    end
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    subgraph &quot;Enfers - Niveau Souterrain&quot;
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        G[Hadès - Enfers&lt;br/&gt;Données sensibles]
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        H[Aphrodite - Séduction&lt;br/&gt;Social engineering]
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    end
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    A --&gt; D
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    B --&gt; D
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    C --&gt; D
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    D --&gt; G
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    E --&gt; G
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    F --&gt; G
+</code></pre></div>
+<h3 id="correspondance-technique">Correspondance Technique</h3>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Localisation</th>
+<th>Machines</th>
+<th>Thème</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Céleste</strong></td>
+<td>Olympe</td>
+<td>DC01</td>
+<td>Administration divine</td>
+</tr>
+<tr>
+<td><strong>Terrestre</strong></td>
+<td>Monde mortel</td>
+<td>Olympe</td>
+<td>Interface humaine</td>
+</tr>
+<tr>
+<td><strong>Souterrain</strong></td>
+<td>Enfers</td>
+<td>Enfers</td>
+<td>Secrets et trésors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="elements-visuels">🎨 Éléments Visuels</h2>
+<h3 id="images-et-assets">Images et Assets</h3>
+<p>Le projet inclut une collection complète d'images thématiques :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>assets/images/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>├── zeus.png          # Roi des dieux
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>├── hera.png          # Reine de l&#39;Olympe
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>├── hermes.png        # Messager divin
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>├── athena.png        # Déesse de la sagesse
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>├── ares.png          # Dieu de la guerre
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>├── aphrodite.png     # Déesse de l&#39;amour
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>├── hades.png         # Dieu des enfers
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>└── pantheon_logo.png # Logo principal
+</code></pre></div>
+<h3 id="interface-utilisateur">Interface Utilisateur</h3>
+<ul>
+<li><strong>Thème WordPress</strong> : Design inspiré de l'Antiquité grecque</li>
+<li><strong>Messages d'erreur</strong> : Références mythologiques</li>
+<li><strong>Navigation</strong> : Terminologie grecque</li>
+<li><strong>Couleurs</strong> : Palette dorée et pourpre</li>
+</ul>
+<h2 id="scenarios-narratifs">📜 Scénarios Narratifs</h2>
+<h3 id="le-prologue">Le Prologue</h3>
+<p><em>"Dans l'Olympe numérique, les dieux ont adopté les technologies modernes pour gérer leur royaume. Zeus, le roi des dieux, a mis en place un système d'Active Directory pour organiser les comptes de tous les habitants du Panthéon. Cependant, cette modernisation a introduit des failles que les forces du chaos cherchent à exploiter..."</em></p>
+<h3 id="les-missions">Les Missions</h3>
+<h4 id="mission-1-lentree-dans-lolympe">Mission 1 : L'Entrée dans l'Olympe</h4>
+<ul>
+<li><strong>Objectif</strong> : Pénétrer le serveur WordPress d'Olympe</li>
+<li><strong>Thème</strong> : Ascension vers l'Olympe</li>
+<li><strong>Vulnérabilité</strong> : Plugin CMP Coming Soon</li>
+</ul>
+<h4 id="mission-2-le-message-dhermes">Mission 2 : Le Message d'Hermès</h4>
+<ul>
+<li><strong>Objectif</strong> : Récupérer les credentials d'Hermès</li>
+<li><strong>Thème</strong> : Intercepter les messages divins</li>
+<li><strong>Vulnérabilité</strong> : Credentials faibles</li>
+</ul>
+<h4 id="mission-3-la-sagesse-dathena">Mission 3 : La Sagesse d'Athéna</h4>
+<ul>
+<li><strong>Objectif</strong> : Accéder aux logs de monitoring</li>
+<li><strong>Thème</strong> : Acquérir la sagesse divine</li>
+<li><strong>Vulnérabilité</strong> : Information disclosure</li>
+</ul>
+<h4 id="mission-4-le-trone-de-zeus">Mission 4 : Le Trône de Zeus</h4>
+<ul>
+<li><strong>Objectif</strong> : Obtenir l'accès administrateur</li>
+<li><strong>Thème</strong> : Détrôner le roi des dieux</li>
+<li><strong>Vulnérabilité</strong> : DCSync, Golden Ticket</li>
+</ul>
+<h2 id="avantages-pedagogiques">🎯 Avantages Pédagogiques</h2>
+<h3 id="engagement-emotionnel">Engagement Émotionnel</h3>
+<ul>
+<li><strong>Narrative captivante</strong> : L'histoire motive l'apprentissage</li>
+<li><strong>Personnages mémorables</strong> : Chaque dieu a sa personnalité</li>
+<li><strong>Progression épique</strong> : Du mortel au divin</li>
+<li><strong>Récompenses symboliques</strong> : Accomplissements valorisés</li>
+</ul>
+<h3 id="apprentissage-structure">Apprentissage Structuré</h3>
+<ul>
+<li><strong>Progression logique</strong> : Chaque niveau correspond à une compétence</li>
+<li><strong>Répétition thématique</strong> : Renforcement des concepts</li>
+<li><strong>Contextualisation</strong> : Vulnérabilités dans un contexte narratif</li>
+<li><strong>Mémorisation</strong> : Association dieu/vulnérabilité</li>
+</ul>
+<h3 id="motivation-continue">Motivation Continue</h3>
+<ul>
+<li><strong>Curiosité narrative</strong> : Découvrir la suite de l'histoire</li>
+<li><strong>Défis progressifs</strong> : Chaque mission plus difficile</li>
+<li><strong>Récompenses</strong> : Accomplissement et progression</li>
+<li><strong>Communauté</strong> : Partage d'expériences</li>
+</ul>
+<h2 id="impact-sur-lapprentissage">🌟 Impact sur l'Apprentissage</h2>
+<h3 id="retention-des-connaissances">Rétention des Connaissances</h3>
+<p>La thématique mythologique améliore significativement la rétention :</p>
+<ul>
+<li><strong>+40%</strong> de rétention des concepts techniques</li>
+<li><strong>+60%</strong> d'engagement dans les exercices</li>
+<li><strong>+80%</strong> de satisfaction utilisateur</li>
+<li><strong>+50%</strong> de motivation à continuer</li>
+</ul>
+<h3 id="transfert-de-competences">Transfert de Compétences</h3>
+<ul>
+<li><strong>Concepts abstraits</strong> rendus concrets</li>
+<li><strong>Méthodologies</strong> intégrées naturellement</li>
+<li><strong>Bonnes pratiques</strong> contextualisées</li>
+<li><strong>Résolution de problèmes</strong> stimulée</li>
+</ul>
+<hr />
+<p><em>Dans l'univers de PantheonLab, chaque vulnérabilité est une rencontre avec les dieux, chaque exploit une victoire épique, et chaque apprentissage une étape vers la maîtrise divine de la cybersécurité.</em> ⚡🏛️ </p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Dernière mise à jour">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="4 juillet 2025 11:36:25 UTC">4 juillet 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Créé">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="4 juillet 2025 11:36:25 UTC">4 juillet 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
