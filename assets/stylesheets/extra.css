@@ -8,42 +8,25 @@
   --md-accent-fg-color--dark:   #2C1D0A;
 }
 
-/* Police Cinzel pour titres et textes */
-:root, body, .md-typeset {
-  font-family: 'Cinzel', serif !important;
-  letter-spacing: 0.03em;
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #E9B84A; /* Or Pantheon */
+  --md-primary-fg-color--light: #ffeabf;
+  --md-primary-fg-color--dark:  #b58c2c;
+  --md-primary-bg-color:        #fffaf0;
+  --md-accent-fg-color:         #d1820d;
 }
 
-/* Si tu veux Cinzel UNIQUEMENT pour les titres : */
-/*
-.md-typeset h1, 
-.md-typeset h2, 
-.md-typeset h3, 
-.md-typeset h4, 
-.md-typeset h5, 
-.md-typeset h6 {
-  font-family: 'Cinzel', serif !important;
-  letter-spacing: 0.04em;
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #E9B84A;
+  --md-primary-fg-color--light: #fff4cc;
+  --md-primary-fg-color--dark:  #a87a23;
+  --md-primary-bg-color:        #33240b;
+  --md-accent-fg-color:         #ffb300;
 }
-*/
 
-/* Optionnel : styliser la barre de navigation ou les boutons
-   en forçant la couleur d’arrière-plan :
-*/
-
-/* Header or PantheonLab */
-[data-md-color-primary="indigo"] .md-header,
-[data-md-color-primary="indigo"] .md-tabs {
-  background: #E9B84A !important;
-  color: #5B4321 !important;
-  border-bottom: 2px solid #b58c2c !important;
-}
-[data-md-color-primary="indigo"] .md-header__button,
-[data-md-color-primary="indigo"] .md-header__title,
-[data-md-color-primary="indigo"] .md-header .md-icon,
-[data-md-color-primary="indigo"] .md-tabs__item--active .md-tabs__link {
+.md-header, .md-tabs {
   color: #5B4321 !important;
 }
-[data-md-color-primary="indigo"] .md-logo__image {
-  filter: drop-shadow(0 0 4px #b58c2c99);
+.md-header__title, .md-header__button {
+  color: #5B4321 !important;
 }
