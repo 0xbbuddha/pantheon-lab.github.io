@@ -31,26 +31,19 @@
    en forçant la couleur d’arrière-plan :
 */
 
-/* Force la barre du header et les tabs en doré */
-.md-header,
-.md-tabs {
-  background-color: #E9B84A !important;
+/* Header or PantheonLab */
+[data-md-color-primary="indigo"] .md-header,
+[data-md-color-primary="indigo"] .md-tabs {
+  background: #E9B84A !important;
   color: #5B4321 !important;
-  /* Optionnel: pour améliorer contraste sur fond doré */
   border-bottom: 2px solid #b58c2c !important;
 }
-
-.md-header__button,
-.md-header__title {
+[data-md-color-primary="indigo"] .md-header__button,
+[data-md-color-primary="indigo"] .md-header__title,
+[data-md-color-primary="indigo"] .md-header .md-icon,
+[data-md-color-primary="indigo"] .md-tabs__item--active .md-tabs__link {
   color: #5B4321 !important;
 }
-
-/* Pour les icônes (menu, recherche, github) */
-.md-icon {
-  color: #5B4321 !important;
-}
-
-.md-tabs__item--active .md-tabs__link {
-  color: #5B4321 !important;
-  font-weight: bold;
+[data-md-color-primary="indigo"] .md-logo__image {
+  filter: drop-shadow(0 0 4px #b58c2c99);
 }

@@ -12,21 +12,21 @@ theme:
   language: fr
   palette:
     - scheme: default
-      primary: custom
-      accent: custom
+      primary: indigo    
+      accent: indigo
       toggle:
         icon: material/toggle-switch
         name: Basculer vers le thème sombre
     - scheme: slate
-      primary: custom
-      accent: custom
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/toggle-switch-off-outline
         name: Basculer vers le thème clair
   font:
     text: "Cinzel"
   logo:
-    icon: "assets/images/logo.png"
+    icon: "assets/images/pantheonlab_logo.png"
   extra_css:
     - "assets/stylesheets/extra.css"
         
