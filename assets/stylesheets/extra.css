@@ -1,0 +1,38 @@
+/* Palette PantheonLab */
+:root > * {
+  --md-primary-fg-color:        #E9B84A;
+  --md-primary-fg-color--light: #F8E6C1;
+  --md-primary-fg-color--dark:  #B58C2C;
+  --md-accent-fg-color:         #5B4321;
+  --md-accent-fg-color--light:  #7C6243;
+  --md-accent-fg-color--dark:   #2C1D0A;
+}
+
+/* Police Cinzel pour titres et textes */
+:root, body, .md-typeset {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 0.03em;
+}
+
+/* Si tu veux Cinzel UNIQUEMENT pour les titres : */
+/*
+.md-typeset h1, 
+.md-typeset h2, 
+.md-typeset h3, 
+.md-typeset h4, 
+.md-typeset h5, 
+.md-typeset h6 {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 0.04em;
+}
+*/
+
+/* Optionnel : styliser la barre de navigation ou les boutons
+   en forçant la couleur d’arrière-plan :
+*/
+/*
+.md-header, .md-tabs {
+  background: #E9B84A !important;
+}
+*/
+

@@ -12,17 +12,24 @@ theme:
   language: fr
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/toggle-switch
         name: Basculer vers le thème sombre
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/toggle-switch-off-outline
         name: Basculer vers le thème clair
+  font:
+    text: "Cinzel"
+  logo:
+    icon: "assets/images/logo.png"
+  extra_css:
+    - "assets/stylesheets/extra.css"
+        
   features:
     - navigation.tabs
     - navigation.sections
