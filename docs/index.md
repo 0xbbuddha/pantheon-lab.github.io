@@ -1,7 +1,7 @@
 # 🌩️ PantheonLab - Le Panthéon de l'Active Directory Vulnérable
 
 <div align="center">
-  <img alt="PantheonLab Logo" src="../PantheonLab/assets/pantheonlab.png" width="400" />
+  <img alt="PantheonLab Logo" src="assets/images/pantheonlab_logo.png" width="400" />
 </div>
 
 ## 🏛️ Bienvenue dans l'Olympe de la Cybersécurité

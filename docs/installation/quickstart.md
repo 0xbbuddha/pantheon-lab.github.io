@@ -251,8 +251,8 @@ ssh -o ConnectTimeout=5 vagrant@192.168.56.10 exit && echo "OK" || echo "FAIL"
 
 Votre environnement PantheonLab est maintenant prêt ! Vous pouvez :
 
-- **Commencer le writeup** : Consultez la section [Writeup](writeup/introduction.md)
-- **Explorer l'architecture** : Voir la [Présentation](presentation/architecture.md)
+- **Commencer le writeup** : Consultez la section [Writeup](../writeup/introduction.md)
+- **Explorer l'architecture** : Voir la [Présentation](../presentation/architecture.md)
 - **Personnaliser** : Modifier les variables dans `ansible/vars/`
 
 ### Prochaines Étapes

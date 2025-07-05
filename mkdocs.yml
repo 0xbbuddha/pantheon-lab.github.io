@@ -10,7 +10,7 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   palette:
-    - scheme: default
+    - scheme: brown
       primary: custom
       accent: custom
       toggle:
@@ -24,8 +24,8 @@ theme:
         name: Basculer vers le thème clair
   font:
     text: "Cinzel"
-  logo:
-    icon: "assets/images/pantheonlab_logo.png"
+  favicon: assets/images/favicon.png
+
   extra_css:
     - "assets/stylesheets/extra.css"
         
@@ -82,6 +82,7 @@ nav:
     - Exploitation: writeup/exploitation.md
     - Élévation de privilèges: writeup/privesc.md
     - Conclusion: writeup/conclusion.md
+    - Writeup Complet: writeup/writeup.md
   - Références:
     - Commandes utiles: references/commands.md
     - Ressources: references/resources.md 

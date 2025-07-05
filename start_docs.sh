@@ -15,4 +15,4 @@ echo "📖 Documentation accessible sur : http://localhost:8000"
 echo "🛑 Pour arrêter : Ctrl+C"
 echo ""
 
-mkdocs serve --dev-addr=0.0.0.0:8000 
+mkdocs serve --dev-addr=0.0.0.0:8000
