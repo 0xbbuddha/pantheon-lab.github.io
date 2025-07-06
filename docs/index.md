@@ -43,7 +43,7 @@ Cette documentation est organisée en plusieurs sections :
 - **[Présentation](presentation/overview.md)** : Vue d'ensemble du projet et de son architecture
 - **[Installation](installation/prerequisites.md)** : Guide complet d'installation et de configuration
 - **[Writeup](writeup/introduction.md)** : Solution détaillée du lab avec méthodologie
-- **[Références](references/resources/)** : ressources 
+- **[Références](references/resources.md)** : ressources 
 
 ### 🤝 Contribution
 

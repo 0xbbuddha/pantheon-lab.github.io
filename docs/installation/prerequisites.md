@@ -5,9 +5,9 @@
 ### Spécifications Minimales
 
 !!! warning "Configuration Minimale"
-    - **OS** : Linux (Ubuntu 18.04+, Debian 10+, CentOS 7+)
+    - **OS** : Linux 
     - **CPU** : 4 cores (Intel/AMD 64-bit)
-    - **RAM** : 8GB minimum, 16GB recommandé
+    - **RAM** : 16GB minimum
     - **Espace disque** : 50GB libre minimum
     - **Réseau** : Connexion Internet stable
 
@@ -35,58 +35,32 @@ git --version
 ```
 
 #### 2. VirtualBox
+[Virtualbox.org](https://www.virtualbox.org/)  
 ```bash
-# Ajout du dépôt officiel
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
-
-# Installation
-sudo apt update
-sudo apt install virtualbox-6.1
-
-# Vérification
 vboxmanage --version
 ```
 
 #### 3. Vagrant
+[hashicorp Vagrant](https://developer.hashicorp.com/vagrant)  
 ```bash
-# Installation via package manager
-sudo apt install vagrant
-
-# Ou installation manuelle
-wget https://releases.hashicorp.com/vagrant/2.3.0/vagrant_2.3.0_linux_amd64.zip
-unzip vagrant_2.3.0_linux_amd64.zip
-sudo mv vagrant /usr/local/bin/
-
 # Vérification
 vagrant --version
 ```
 
 ### Outils d'Automatisation
 
-#### 4. Ansible
+#### 4. Ansible 
+[Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)  
 ```bash
-# Installation via package manager
-sudo apt install ansible
-
-# Ou installation via pip
-sudo apt install python3-pip
-pip3 install ansible
-
 # Vérification
 ansible --version
 ```
 
 #### 5. Python et Dépendances
 ```bash
-# Installation Python 3
-sudo apt install python3 python3-pip
-
 # Installation pywinrm
 pip3 install pywinrm --break-system-packages
-
 # Vérification
-python3 --version
 pip3 list | grep pywinrm
 ```
 
@@ -128,18 +102,6 @@ netstat -tuln | grep -E ':(22|80|3389|5985)'
 ```
 
 ## 🔐 Configuration Sécurité
-
-### Extensions VirtualBox
-
-```bash
-# Installation des extensions VirtualBox
-sudo apt install virtualbox-ext-pack
-
-# Ou téléchargement manuel
-wget https://download.virtualbox.org/virtualbox/6.1.40/Oracle_VM_VirtualBox_Extension_Pack-6.1.40.vbox-extpack
-sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.1.40.vbox-extpack
-```
-
 ### Configuration BIOS
 
 !!! warning "Configuration BIOS Requise"
@@ -151,40 +113,11 @@ sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-6.1.40.vbox-
 
 ```bash
 # Vérification VT-x/AMD-V
-egrep -c '(vmx|svm)' /proc/cpuinfo
+grep -c -E '(vmx|svm)' /proc/cpuinfo
 
 # Si résultat > 0, la virtualisation est activée
 # Si résultat = 0, activer dans le BIOS
 ```
-
-## 📦 Outils Optionnels Recommandés
-
-### Outils de Pentest
-
-```bash
-# Installation d'outils utiles
-sudo apt install nmap wpscan gobuster dirb nikto metasploit-framework
-
-# Outils Python
-pip3 install requests beautifulsoup4 lxml
-
-# Outils Windows (si disponible)
-# Windows Terminal, PowerShell 7, etc.
-```
-
-### Outils de Monitoring
-
-```bash
-# Monitoring système
-sudo apt install htop iotop nethogs
-
-# Monitoring réseau
-sudo apt install wireshark tcpdump
-
-# Monitoring logs
-sudo apt install logwatch
-```
-
 ## 🧪 Tests de Validation
 
 ### Script de Test Automatique
@@ -192,6 +125,7 @@ sudo apt install logwatch
 Créez un script de test pour valider l'installation :
 
 ```bash
+cat > test_prerequisites.sh <<EOF
 #!/bin/bash
 # test_prerequisites.sh
 
@@ -221,6 +155,23 @@ else
     echo "❌ Ansible non fonctionnel"
 fi
 
+# Test pywinrm
+if python3 -c "import winrm" &> /dev/null; then
+    echo "✅ pywinrm installé"
+else
+    echo "❌ pywinrm manquant"
+fi
+
+# Test des collections Ansible
+collections=("trippsc2.adcs" "ansible.windows" "community.windows")
+for collection in "${collections[@]}"; do
+    if ansible-galaxy collection list | grep -q "$collection"; then
+        echo "✅ Collection Ansible $collection installée"
+    else
+        echo "❌ Collection Ansible $collection manquante"
+    fi
+done
+
 # Test réseau
 if ping -c 1 8.8.8.8 &> /dev/null; then
     echo "✅ Connectivité réseau OK"
@@ -229,23 +180,15 @@ else
 fi
 
 # Test virtualisation
-if egrep -c '(vmx|svm)' /proc/cpuinfo &> /dev/null; then
+if grep -c -E '(vmx|svm)' /proc/cpuinfo &> /dev/null; then
     echo "✅ Virtualisation activée"
 else
     echo "❌ Virtualisation non activée"
 fi
 
 echo "=== Fin des Tests ==="
-```
-
-### Exécution du Test
-
-```bash
-# Rendre le script exécutable
-chmod +x test_prerequisites.sh
-
-# Exécuter le test
-./test_prerequisites.sh
+EOF
+chmod +x test_prerequisites.sh;./test_prerequisites.sh
 ```
 
 ## 🚨 Résolution de Problèmes

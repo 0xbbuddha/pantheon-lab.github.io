@@ -78,8 +78,6 @@ nav:
   - Installation:
     - Prérequis: installation/prerequisites.md
     - Installation rapide: installation/quickstart.md
-    - Configuration: installation/configuration.md
-    - Déploiement: installation/deployment.md
   - Writeup:
     - Introduction: writeup/introduction.md
     - Énumération: writeup/enumeration.md
