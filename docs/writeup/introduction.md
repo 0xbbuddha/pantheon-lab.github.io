@@ -24,7 +24,7 @@ Ce writeup détaille la résolution complète du lab PantheonLab, un environneme
 
 ## 🏛️ Contexte du Scénario
 
-Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de mettre en place des jeux afin de permettre à un mortel de se hisser au-dessus des autres et de les rejoindre au Panthéon. Cependant, un dieu, Hermès, s'agace dans l'ombre de n'être que le messager. Il a introduit des vulnérabilités pour s'approcher discrètement des dieux — des vulnérabilités que vous devrez identifier et exploiter afin de compromettre entièrement cet environnement.
+Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de mettre en place des jeux afin de permettre à un mortel de se hisser au-dessus des autres et de les rejoindre au Panthéon. Cependant, un dieu, Hermès, s'agace dans l'ombre de n'être que le messager. Il a introduit des vulnérabilités pour s'approcher discrètement des dieux — des vulnérabilités que vous devrez identifier et exploiter, vous devrez ensuite vous débrouiller afin de compromettre entièrement cet environnement.
 
 ### Machines Cibles
 

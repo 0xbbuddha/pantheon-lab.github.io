@@ -269,7 +269,7 @@ hermes smbscores
 hermes@OlympeWordpress:/$
 ```
 
-Ainsi on peut voit qu’il n’y a qu’un seul autre utilisateur nomé dans ce groupe et que ce dernier permet de lire 2 fichier, `scores.txt` et `score_update.sh`
+Ainsi on peut voit qu’il n’y a qu’un seul autre utilisateur nommé dans ce groupe et que ce dernier permet de lire 2 fichier, `scores.txt` et `score_update.sh`
 
 ```
 find / -group smbscores 2>/dev/null
@@ -280,7 +280,7 @@ find / -group smbscores 2>/dev/null
 hermes@OlympeWordpress:/$ 
 ```
 
-Bien qu’il n’y est rien dans le fichier `scores.txt` il y à tout de même des credentials danas le fichier `score_update.sh`. Cette fontionnalité permet d’update les scores des jeux sensé bientôt commencer et les envoyer vers un server sur l’ip `192.168.56.11`.
+Bien qu’il n’y est rien dans le fichier `scores.txt` il y à tout de même des credentials dans le fichier `score_update.sh`. Cette fontionnalité permet d’update les scores des jeux sensé bientôt commencer et les envoyer vers un server sur l’ip `192.168.56.11`.
 
 ```
 hermes@OlympeWordpress:/$ cat /srv/pantheon.god/scores/scores.txt
@@ -288,8 +288,6 @@ hermes@OlympeWordpress:/$ cat /opt/scores/score_update.sh
 smbclient //192.168.56.11/scores -U 'smbscores%Sc0r3sS3rv1c3!2024' -c 'put /srv/pantheon.god/scores/scores.txt scores.txt'
 hermes@OlympeWordpress:/$
 ```
-
-n’ayant pas accès à cette ip, on place un agent ligolo-ng sur la machine avant d’utiliser nxc.
 
 …
 

