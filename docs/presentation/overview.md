@@ -13,24 +13,16 @@ Le projet transforme l'apprentissage de la cybersécurité en une **quête épiq
 ### Compétences Techniques Visées
 
 !!! info "Compétences Active Directory"
-    - **Énumération de domaine** : Découverte des utilisateurs, groupes, politiques
-    - **Attaques Kerberos** : Golden Ticket, Silver Ticket, AS-REP Roasting
-    - **Escalade de privilèges** : DCSync, BloodHound, ACL abuse
-    - **Persistence** : GPO, Scheduled Tasks, WMI
-    - **Lateral Movement** : Pass the Hash, Over-Pass the Hash
+    - **Énumération**
+    - **Attaques Windows**
+    - **Escalade de privilèges**
+    - **Mouvement latéral** 
 
 !!! info "Compétences Linux/Web"
-    - **Énumération web** : WordPress, plugins vulnérables
-    - **Exploitation** : Upload de shell, RCE
-    - **Privilege Escalation** : SUID, cron jobs, services
+    - **Énumération web**
+    - **Exploitation** 
+    - **Escalade de privilèges** 
 
-### Niveaux de Difficulté
-
-| Niveau | Description | Compétences Requises |
-|--------|-------------|---------------------|
-| **Débutant** | Énumération de base, exploitation WordPress | Connaissances Linux/Web de base |
-| **Intermédiaire** | Active Directory, Kerberos | Connaissances Windows/AD |
-| **Avancé** | Techniques avancées, persistence | Expertise en sécurité offensive |
 
 ## 🏗️ Architecture Technique
 
@@ -65,26 +57,12 @@ Le déploiement et la configuration sont entièrement automatisés via **Ansible
 - **Variables personnalisables** : Adaptation facile aux besoins spécifiques
 
 ## 🎭 Thématique Mythologique
-
-### Correspondance Dieux/Vulnérabilités
-
-| Dieu/Déesse | Attribut | Vulnérabilité Associée |
-|-------------|----------|------------------------|
-| **Zeus** | Roi des dieux | Contrôleur de domaine |
-| **Héra** | Reine, jalousie | Politiques de sécurité strictes |
-| **Hermès** | Messager, ruse | Communication non sécurisée |
-| **Athéna** | Sagesse, stratégie | Logs et monitoring |
-| **Arès** | Guerre, violence | Attaques directes |
-| **Aphrodite** | Beauté, séduction | Social engineering |
-| **Hadès** | Enfers, secrets | Données sensibles |
-
 ### Immersion Narrative
 
 Chaque machine et utilisateur suit la thématique :
 
 - **Noms de domaine** : `pantheon.god`, `olympe.god`
 - **Utilisateurs** : `zeus`, `hera`, `hermes`, etc.
-- **Messages d'erreur** : Références mythologiques
 - **Indices** : Liés aux légendes grecques
 
 ## 🔧 Technologies Utilisées
@@ -96,23 +74,6 @@ Chaque machine et utilisateur suit la thématique :
 - **Ansible** : Configuration automatique
 - **Windows Server 2025** : Active Directory
 - **Ubuntu 18.04** : Serveur web
-
-### Outils de Sécurité Intégrés
-
-- **BloodHound** : Cartographie AD
-- **PowerView** : Énumération AD
-- **Mimikatz** : Extraction de credentials
-- **WPScan** : Audit WordPress
-- **Nmap** : Énumération réseau
-
-## 📊 Métriques du Projet
-
-!!! success "Statistiques"
-    - **3 machines virtuelles** configurées
-    - **12+ scénarios** d'attaque différents
-    - **50+ playbooks Ansible** pour l'automatisation
-    - **100+ variables** configurables
-    - **Documentation complète** avec writeup détaillé
 
 ## 🎯 Public Cible
 
@@ -155,4 +116,4 @@ Chaque machine et utilisateur suit la thématique :
 
 ---
 
-*PantheonLab transforme l'apprentissage de la cybersécurité en une aventure épique où chaque défi est une rencontre avec les dieux de l'Olympe !* ⚡ 
+*Avec PantheonLab venez rencontrer les dieux de l'Olympe et détronez Zeus !* ⚡ 
