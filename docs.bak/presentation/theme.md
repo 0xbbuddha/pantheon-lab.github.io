@@ -8,7 +8,7 @@ PantheonLab plonge les utilisateurs dans un univers unique où la cybersécurit�
 
 ### L'Histoire du Lab
 
-Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de moderniser leur royaume en adoptant les technologies numériques. Cependant, cette transition a introduit des vulnérabilités que les forces du chaos cherchent à exploiter. Le pentester incarne un **héros moderne** chargé de sécuriser le Panthéon numérique.
+Dans cette première édition, vous êtes un peu un transgresseur. Des jeux vont être organiser par les dieux mais votre impatience vous guide.... Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de moderniser leur royaume en adoptant les technologies numériques. Cependant, cette transition a introduit des vulnérabilités que les forces du chaos cherchent à exploiter. Le pentester incarne un **héros moderne** chargé de sécuriser le Panthéon numérique.
 
 ### Immersion Totale
 
