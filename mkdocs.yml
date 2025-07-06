@@ -10,14 +10,14 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   palette:
-    - scheme: brown
+    - scheme: default
       primary: brown
       accent: custom
       toggle:
         icon: material/toggle-switch
         name: Basculer vers le thème sombre
     - scheme: slate
-      primary: custom
+      primary: brown
       accent: custom
       toggle:
         icon: material/toggle-switch-off-outline
@@ -83,10 +83,8 @@ nav:
   - Writeup:
     - Introduction: writeup/introduction.md
     - Énumération: writeup/enumeration.md
-    - Exploitation: writeup/exploitation.md
-    - Élévation de privilèges: writeup/privesc.md
+    - PrivEsc Linux: writeup/linux_privesc_hera.md
     - Conclusion: writeup/conclusion.md
-    - Writeup Complet: writeup/writeup.md
+    - Writeup Complet: writeup/writeup.md #A completer avec la privesc linux
   - Références:
-    - Commandes utiles: references/commands.md
     - Ressources: references/resources.md 
