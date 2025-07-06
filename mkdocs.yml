@@ -51,8 +51,8 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+#  - pymdownx.emoji:
+#      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
