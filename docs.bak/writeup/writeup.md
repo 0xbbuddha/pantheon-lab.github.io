@@ -486,11 +486,11 @@ LDAP        192.168.56.11   389    PANTHEON-DC01    Account: svc_thunderB$      
 
 On vois que notre utilisateur hercule est membre du groupe `OLYMPE-IMORTAL-HEROS` et que ce groupe à un generic  write sur plusieurs utilisateur fessant tous partie du groupe `TITANTS-BANNIS`
 
-![image.png](WriteUP%2020026bb2e655805b8aa2d7e5b4fa4a85/image.png)
+![image.png](writeup_sources/image.png)
 
 Un des utilisateur de ce groupe est particulièrement intéressant car il fais partie du groupe `remote desktop users` et du groupe `remote management users` deux groupes ayant un droit d’accès a distance aux machine windows du domaine,
 
-![image.png](WriteUP%2020026bb2e655805b8aa2d7e5b4fa4a85/image%201.png)
+![image.png](writeup_sources/image%201.png)
 
 Étant donner qu’il y a un `ADCS` sur le `DC`, on peut récupérer un `TGT` et le hash de l’utilisateur `cronos` avec l’attaque `shadowcredential`  avec `bloodyAD+gettgtpkinit.py` ou simplement avec `certipy`
 
@@ -570,7 +570,7 @@ On comprend que le compte est desactiver et qu’il va falloire d’abord le ré
 
 On confirme qu’il peut bien utiliser win-rm sur le dc
 
-![image.png](WriteUP%2020026bb2e655805b8aa2d7e5b4fa4a85/image%202.png)
+![image.png](writeup_sources/image%202.png)
 
 - Une fois connecter en tant que cronos, on remarque un répertoire peux habituel `coliseum` qui appartient à l’utilisateur `athena` et sur le quel nous avons tout les droits :
     

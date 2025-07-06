@@ -753,35 +753,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../exploitation/" class="md-nav__link">
+      <a href="../linux_privesc_hera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Exploitation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../privesc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Élévation de privilèges
+    PrivEsc Linux
     
   </span>
   
@@ -1492,9 +1469,9 @@ Cela nous permet de récupérer 3 utilisateur <code>kerberoastable</code>, notre
 </li>
 </ul>
 <p>On vois que notre utilisateur hercule est membre du groupe <code>OLYMPE-IMORTAL-HEROS</code> et que ce groupe à un generic  write sur plusieurs utilisateur fessant tous partie du groupe <code>TITANTS-BANNIS</code></p>
-<p><img alt="image.png" src="../WriteUP%2020026bb2e655805b8aa2d7e5b4fa4a85/image.png" /></p>
+<p><img alt="image.png" src="../writeup_sources/image.png" /></p>
 <p>Un des utilisateur de ce groupe est particulièrement intéressant car il fais partie du groupe <code>remote desktop users</code> et du groupe <code>remote management users</code> deux groupes ayant un droit d’accès a distance aux machine windows du domaine,</p>
-<p><img alt="image.png" src="../WriteUP%2020026bb2e655805b8aa2d7e5b4fa4a85/image%201.png" /></p>
+<p><img alt="image.png" src="../writeup_sources/image%201.png" /></p>
 <p>Étant donner qu’il y a un <code>ADCS</code> sur le <code>DC</code>, on peut récupérer un <code>TGT</code> et le hash de l’utilisateur <code>cronos</code> avec l’attaque <code>shadowcredential</code>  avec <code>bloodyAD+gettgtpkinit.py</code> ou simplement avec <code>certipy</code></p>
 <p>Mais dans les deux cas on ce retrouve avec l’erreur suivante :</p>
 <p><code>KDC_ERR_CLIENT_REVOKED Detail: "Client’s credentials have been revoked"</code></p>
@@ -1561,7 +1538,7 @@ Cela nous permet de récupérer 3 utilisateur <code>kerberoastable</code>, notre
 </li>
 </ul>
 <p>On confirme qu’il peut bien utiliser win-rm sur le dc</p>
-<p><img alt="image.png" src="../WriteUP%2020026bb2e655805b8aa2d7e5b4fa4a85/image%202.png" /></p>
+<p><img alt="image.png" src="../writeup_sources/image%202.png" /></p>
 <ul>
 <li>
 <p>Une fois connecter en tant que cronos, on remarque un répertoire peux habituel <code>coliseum</code> qui appartient à l’utilisateur <code>athena</code> et sur le quel nous avons tout les droits :</p>
@@ -1900,7 +1877,7 @@ Cependant ce dernier à un généricALL sur tout les objet de l’OU <code>ENFER
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 5, 2025 00:39:38 UTC">July 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 16:03:08 UTC">July 6, 2025</span>
   </span>
 
     
