@@ -4,7 +4,7 @@ site_author: PantheonLab Team
 site_url: https://pantheonlab.github.io
 
 repo_name: PantheonLab
-repo_url: https://github.com/bbuddha/vulnad
+repo_url: https://github.com/0xbbuddha/pantheonlab
 edit_uri: edit/main/docs/
 
 theme:
@@ -83,8 +83,10 @@ nav:
   - Writeup:
     - Introduction: writeup/introduction.md
     - Énumération: writeup/enumeration.md
-    - PrivEsc Linux: writeup/linux_privesc_hera.md
+    - FootHold_Linux: writeup/foothold_linux.md
+    - FootHold_Windows: writeup/foothold_windows.md
+    - Windows_Privesc: writeup/windows_privesc.md 
+    - Linux_Privesc: writeup/linux_privesc_hera.md
     - Conclusion: writeup/conclusion.md
-    - Writeup Complet: writeup/writeup.md #A completer avec la privesc linux
   - Références:
     - Ressources: references/resources.md 

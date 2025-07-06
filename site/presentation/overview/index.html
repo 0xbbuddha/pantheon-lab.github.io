@@ -550,15 +550,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environnement-virtualise" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environnement Virtualisé
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#automatisation-avec-ansible" class="md-nav__link">
     <span class="md-ellipsis">
       Automatisation avec Ansible
@@ -999,12 +990,81 @@
   
   
     <li class="md-nav__item">
+      <a href="../../writeup/foothold_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FootHold_Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/foothold_windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FootHold_Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../writeup/windows_privesc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows_Privesc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../writeup/linux_privesc_hera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    PrivEsc Linux
+    Linux_Privesc
     
   </span>
   
@@ -1028,29 +1088,6 @@
   
   <span class="md-ellipsis">
     Conclusion
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../writeup/writeup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Writeup Complet
     
   </span>
   
@@ -1226,15 +1263,6 @@
   
     <nav class="md-nav" aria-label="🏗️ Architecture Technique">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environnement-virtualise" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environnement Virtualisé
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#automatisation-avec-ansible" class="md-nav__link">
@@ -1417,30 +1445,12 @@
 </ul>
 </div>
 <h2 id="architecture-technique">🏗️ Architecture Technique</h2>
-<h3 id="environnement-virtualise">Environnement Virtualisé</h3>
-<p>PantheonLab utilise <strong>Vagrant</strong> et <strong>VirtualBox</strong> pour créer un environnement isolé et reproductible :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">Machines Virtuelles</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Olympe (Ubuntu 18.04)</span><span class="p">:</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IP</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.56.10</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Rôle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Serveur web WordPress</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Mémoire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2GB RAM, 2 CPU</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">DC01 (Windows Server 2025)</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IP</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.56.11</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Rôle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Contrôleur de domaine</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Mémoire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4GB RAM, 2 CPU</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Enfers (Windows Server 2025)</span><span class="p">:</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IP</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.56.12</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Rôle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Serveur membre</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Mémoire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4GB RAM, 2 CPU</span>
-</code></pre></div>
 <h3 id="automatisation-avec-ansible">Automatisation avec Ansible</h3>
 <p>Le déploiement et la configuration sont entièrement automatisés via <strong>Ansible</strong> :</p>
 <ul>
-<li><strong>Playbooks Windows</strong> : Configuration Active Directory, utilisateurs, politiques</li>
-<li><strong>Playbooks Linux</strong> : Installation WordPress, configuration Apache/MySQL</li>
-<li><strong>Variables personnalisables</strong> : Adaptation facile aux besoins spécifiques</li>
+<li><strong>Playbooks Windows</strong> </li>
+<li><strong>Playbooks Linux</strong> </li>
+<li><strong>Variables personnalisables</strong> </li>
 </ul>
 <h2 id="thematique-mythologique">🎭 Thématique Mythologique</h2>
 <h3 id="immersion-narrative">Immersion Narrative</h3>
@@ -1520,7 +1530,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 16:03:08 UTC">July 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 17:42:44 UTC">July 6, 2025</span>
   </span>
 
     

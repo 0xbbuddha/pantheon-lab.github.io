@@ -4,9 +4,9 @@
 
 PantheonLab est un **laboratoire de sécurité informatique** conçu pour l'apprentissage pratique des techniques de pentest et de sécurité Active Directory. Contrairement aux labs traditionnels, PantheonLab se distingue par son approche **thématique et immersive** basée sur la mythologie grecque.
 
-### 🏛️ Concept Unique
+### 🏛️ Concept
 
-Le projet transforme l'apprentissage de la cybersécurité en une **quête épique** où chaque défi représente un dieu ou une déesse du Panthéon grec. Cette approche rend l'apprentissage plus engageant et mémorable.
+Le projet transforme l'apprentissage de la cybersécurité en une **quête épique**. Cette approche rend l'apprentissage plus engageant et mémorable.
 
 ## 🌟 Objectifs Pédagogiques
 
@@ -26,35 +26,13 @@ Le projet transforme l'apprentissage de la cybersécurité en une **quête épiq
 
 ## 🏗️ Architecture Technique
 
-### Environnement Virtualisé
-
-PantheonLab utilise **Vagrant** et **VirtualBox** pour créer un environnement isolé et reproductible :
-
-```yaml
-Machines Virtuelles:
-  - Olympe (Ubuntu 18.04):
-    - IP: 192.168.56.10
-    - Rôle: Serveur web WordPress
-    - Mémoire: 2GB RAM, 2 CPU
-    
-  - DC01 (Windows Server 2025):
-    - IP: 192.168.56.11
-    - Rôle: Contrôleur de domaine
-    - Mémoire: 4GB RAM, 2 CPU
-    
-  - Enfers (Windows Server 2025):
-    - IP: 192.168.56.12
-    - Rôle: Serveur membre
-    - Mémoire: 4GB RAM, 2 CPU
-```
-
 ### Automatisation avec Ansible
 
 Le déploiement et la configuration sont entièrement automatisés via **Ansible** :
 
-- **Playbooks Windows** : Configuration Active Directory, utilisateurs, politiques
-- **Playbooks Linux** : Installation WordPress, configuration Apache/MySQL
-- **Variables personnalisables** : Adaptation facile aux besoins spécifiques
+- **Playbooks Windows** 
+- **Playbooks Linux** 
+- **Variables personnalisables** 
 
 ## 🎭 Thématique Mythologique
 ### Immersion Narrative

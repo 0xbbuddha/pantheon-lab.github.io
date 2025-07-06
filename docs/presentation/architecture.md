@@ -29,4 +29,6 @@ graph TB
     B --> D
     C --> D
 ```
+![Architecture PantheonLab](../assets/images/architecture_final_mvp.png)
+
 
