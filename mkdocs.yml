@@ -25,9 +25,6 @@ theme:
   font:
     text: "Cinzel"
   favicon: assets/images/favicon.png
-
-  extra_css:
-    - "assets/stylesheets/extra.css"
         
   features:
     - navigation.tabs
@@ -68,6 +65,9 @@ plugins:
   - search
   - git-revision-date-localized:
       enable_creation_date: true
+
+extra_css:
+  - assets/stylesheets/extra.css
 
 nav:
   - Accueil: index.md

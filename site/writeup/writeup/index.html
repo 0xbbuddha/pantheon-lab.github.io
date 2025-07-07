@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1190,7 +1192,7 @@
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>hermes smbscores
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>hermes@OlympeWordpress:/$
 </code></pre></div>
-<p>Ainsi on peut voit qu’il n’y a qu’un seul autre utilisateur nomé dans ce groupe et que ce dernier permet de lire 2 fichier, <code>scores.txt</code> et <code>score_update.sh</code></p>
+<p>Ainsi on peut voit qu’il n’y a qu’un seul autre utilisateur nommé dans ce groupe et que ce dernier permet de lire 2 fichier, <code>scores.txt</code> et <code>score_update.sh</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>find / -group smbscores 2&gt;/dev/null
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/opt/scores/score_update.sh
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/srv/pantheon.god
@@ -1198,13 +1200,12 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>/srv/pantheon.god/scores/scores.txt
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>hermes@OlympeWordpress:/$ 
 </code></pre></div>
-<p>Bien qu’il n’y est rien dans le fichier <code>scores.txt</code> il y à tout de même des credentials danas le fichier <code>score_update.sh</code>. Cette fontionnalité permet d’update les scores des jeux sensé bientôt commencer et les envoyer vers un server sur l’ip <code>192.168.56.11</code>.</p>
+<p>Bien qu’il n’y est rien dans le fichier <code>scores.txt</code> il y à tout de même des credentials dans le fichier <code>score_update.sh</code>. Cette fontionnalité permet d’update les scores des jeux sensé bientôt commencer et les envoyer vers un server sur l’ip <code>192.168.56.11</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>hermes@OlympeWordpress:/$ cat /srv/pantheon.god/scores/scores.txt
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>hermes@OlympeWordpress:/$ cat /opt/scores/score_update.sh
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>smbclient //192.168.56.11/scores -U &#39;smbscores%Sc0r3sS3rv1c3!2024&#39; -c &#39;put /srv/pantheon.god/scores/scores.txt scores.txt&#39;
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>hermes@OlympeWordpress:/$
 </code></pre></div>
-<p>n’ayant pas accès à cette ip, on place un agent ligolo-ng sur la machine avant d’utiliser nxc.</p>
 <p>…</p>
 <ul>
 <li>
@@ -1794,7 +1795,7 @@ Cependant ce dernier à un généricALL sur tout les objet de l’OU <code>ENFER
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 17:42:44 UTC">July 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 23:48:26 UTC">July 6, 2025</span>
   </span>
 
     

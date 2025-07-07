@@ -1,33 +1,156 @@
-/* Palette PantheonLab */
+/* Palette PantheonLab - Inspirée du logo */
 :root > * {
-  --md-primary-fg-color:        #E9B84A;
-  --md-primary-fg-color--light: #F8E6C1;
-  --md-primary-fg-color--dark:  #B58C2C;
-  --md-accent-fg-color:         #5B4321;
-  --md-accent-fg-color--light:  #7C6243;
-  --md-accent-fg-color--dark:   #2C1D0A;
+  --md-primary-fg-color:        #B8860B;  /* Or antique comme le temple */
+  --md-primary-fg-color--light: #F5DEB3;  /* Beige clair du fond */
+  --md-primary-fg-color--dark:  #8B4513;  /* Brun foncé des contours */
+  --md-accent-fg-color:         #654321;  /* Brun chocolat */
+  --md-accent-fg-color--light:  #D2B48C;  /* Tan clair */
+  --md-accent-fg-color--dark:   #3E2723;  /* Brun très foncé */
 }
 
 :root, [data-md-color-scheme="default"] {
-  --md-primary-fg-color:        #8B4513 !important; /* Marron forcé */
-  --md-primary-fg-color--light: #ffeabf;
-  --md-primary-fg-color--dark:  #b58c2c;
-  --md-primary-bg-color:        #fffaf0;
-  --md-accent-fg-color:         #d1820d;
+  --md-primary-fg-color:        #B8860B !important; /* Or antique dominant */
+  --md-primary-fg-color--light: #F5DEB3;            /* Beige clair du logo */
+  --md-primary-fg-color--dark:  #8B4513;            /* Brun foncé des détails */
+  --md-primary-bg-color:        #FFF8DC;            /* Crème très clair */
+  --md-accent-fg-color:         #DAA520;            /* Or plus vif */
+  --md-text-color:              #3E2723;            /* Texte brun foncé */
+  --md-text-color--light:       #5D4037;            /* Texte brun moyen */
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #E9B84A;
-  --md-primary-fg-color--light: #fff4cc;
-  --md-primary-fg-color--dark:  #a87a23;
-  --md-primary-bg-color:        #33240b;
-  --md-accent-fg-color:         #ffb300;
+  --md-primary-fg-color:        #DAA520;            /* Or vif pour mode sombre */
+  --md-primary-fg-color--light: #F5DEB3;           /* Beige clair */
+  --md-primary-fg-color--dark:  #B8860B;           /* Or antique */
+  --md-primary-bg-color:        #2E1B13;           /* Brun très foncé */
+  --md-accent-fg-color:         #FFD700;           /* Or éclatant */
+  --md-text-color:              #F5DEB3;           /* Texte beige */
+  --md-text-color--light:       #D2B48C;           /* Texte tan */
 }
 
+/* Styles pour harmoniser avec le logo */
 .md-header, .md-tabs {
-  color: #5B4321 !important;
-  background-color: #8B4513 !important;
+  background: linear-gradient(135deg, #B8860B 0%, #8B4513 100%) !important;
+  color: #FFF8DC !important;
+  border-bottom: 3px solid #DAA520 !important;
 }
+
 .md-header__title, .md-header__button {
-  color: #5B4321 !important;
+  color: #FFF8DC !important;
+  font-weight: bold !important;
+}
+
+.md-tabs__link {
+  color: #FFF8DC !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.md-tabs__link:hover {
+  color: #FFD700 !important;
+  border-bottom-color: #FFD700 !important;
+}
+
+.md-tabs__link--active {
+  color: #FFD700 !important;
+  border-bottom-color: #FFD700 !important;
+}
+
+/* Style pour les admonitions (boîtes d'info) */
+.md-typeset .admonition {
+  border-left: 4px solid #B8860B !important;
+}
+
+.md-typeset .admonition.success {
+  border-left-color: #DAA520 !important;
+}
+
+.md-typeset .admonition.warning {
+  border-left-color: #FF8C00 !important;
+}
+
+.md-typeset .admonition.info {
+  border-left-color: #4682B4 !important;
+}
+
+/* Élargissement de la partie centrale du site - Version corrigée */
+.md-grid {
+  max-width: none !important;
+}
+
+.md-main {
+  max-width: none !important;
+}
+
+.md-main .md-main__inner {
+  max-width: 95% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.md-content {
+  max-width: none !important;
+}
+
+.md-content__inner {
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ajustement de la sidebar pour qu'elle reste proportionnelle */
+.md-sidebar--primary {
+  width: 12rem !important;
+}
+
+.md-sidebar--secondary {
+  width: 12rem !important;
+}
+
+/* Ajustements pour les différentes tailles d'écran */
+@media screen and (min-width: 76.25em) {
+  .md-main .md-main__inner {
+    max-width: 90% !important;
+  }
+}
+
+@media screen and (min-width: 100em) {
+  .md-main .md-main__inner {
+    max-width: 85% !important;
+  }
+}
+
+/* Effet décoratif inspiré du logo - bordure grecque */
+.md-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #DAA520 0px,
+    #DAA520 10px,
+    #B8860B 10px,
+    #B8860B 20px
+  );
+}
+
+/* Style pour les liens dans le contenu */
+.md-content a {
+  color: #B8860B !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.md-content a:hover {
+  color: #DAA520 !important;
+  border-bottom-color: #DAA520 !important;
+}
+
+/* Test visuel pour s'assurer que le CSS est chargé - Effet doré du logo */
+body {
+  background: linear-gradient(180deg, #FFF8DC 0%, #FAEBD7 100%) !important;
 }

