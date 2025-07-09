@@ -316,7 +316,7 @@ On donne donc un genericALL sur une `OU` à orphee pour qu’il puisse exploiter
 
 ```bash
 hades@pantheon.god][Jun 26, 2025 - 02:38:28 (CEST)] exegol-pantheon_wu bloodhound # stobject "OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD"
-TargetObject set to 'OU=ENFERS,DC=PANTHEON,DC=GOD'
+TargetObject set to 'OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD'
 [hades@pantheon.god][Jun 26, 2025 - 02:39:13 (CEST)] exegol-pantheon_wu bloodhound # stcontrolledprincipal orphee
 ControlledPrincipal set to 'orphee'
 ```
