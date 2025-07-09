@@ -1,3 +1,5 @@
+<!-- INSTALLATION -->
+
 # Installation Rapide
 
 ## 🚀 Démarrage Express
@@ -9,10 +11,8 @@ Cette section vous guide à travers l'installation complète de PantheonLab en q
 ```bash
 # Cloner le dépôt principal
 git clone https://github.com/0xbbuddha/pantheonlab
-cd pantheonlab
+cd PantheonLab
 
-# Naviguer vers le lab PantheonLab
-cd HCO_VulnAD/pantheon-lab
 ```
 
 
@@ -23,39 +23,43 @@ cd HCO_VulnAD/pantheon-lab
 
 ```bash
 # Rendre le script exécutable
-chmod +x pantheon.sh
+chmod +x pantheonlab.sh
 
 # Lancer le déploiement complet
-./pantheon.sh
+./pantheonlab.sh
 ```
 
-Ce script effectue automatiquement :
-- Destruction des VMs existantes
-- Création des nouvelles VMs
-- Configuration initiale
-- Déploiement Ansible
+Ce script permet de :
 
-### Étape 3 : Déploiement Manuel (Alternative)
+- Créer du virtual environement
+- Télécharger des dépendances python et ansible
+- Lancer du terminal interactif Pantheon Lab
 
-Si vous préférez contrôler chaque étape :
 
-```bash
-# 1. Créer les machines virtuelles
-vagrant up
+Une fois dans le terminal interactif: 
 
-# 2. Attendre que toutes les VMs soient prêtes
-vagrant status
 
-# 3. Déployer la configuration Windows
-ansible-playbook -i ansible/inventory/administrator_inventory.yml ansible/playbooks/windows_main.yml
+<div align="center">
+  <img alt="PantheonLab Logo" src="../../assets/images/screen_TUI.png" width="800" />
+</div>
 
-# 4. Déployer la configuration Linux
-ansible-playbook -i ansible/inventory/linux_inventory.yml ansible/playbooks/linux_main.yml
-```
+| Option | Action                                                                                         |
+|--------|------------------------------------------------------------------------------------------------|
+| 1      | Permet de vérifier les dependances nécessaire au lab ( a lancer avant chaque debut de lab)     |
+| 2      | Lance le lab                                                                                   |
+| 3      | Donne des information générale sur l'état des VMs dans le lab                                  |
+| 4      | Détrius complètement le lab et toute les ressources associé                                    |
+| 5      | Aide                                                                                           |
+| q      | Quitter                                                                                        |
+
 
 ## ⏱️ Temps d'Installation
 
-## 🔍 Monitoring de l'Installation
+!!! info "Temps estimé"
+    ⏳ **Durée d'installation typique : ~40 minutes**
+
+## 🔍 Monitoring de l'Installation  
+
 
 ### Suivi en Temps Réel
 
@@ -63,8 +67,6 @@ ansible-playbook -i ansible/inventory/linux_inventory.yml ansible/playbooks/linu
 # Surveiller les VMs
 vagrant status
 
-# Voir les logs en temps réel
-vagrant up --debug
 
 # Surveiller les processus
 watch -n 5 'ps aux | grep -E "(vagrant|vbox|ansible)"'

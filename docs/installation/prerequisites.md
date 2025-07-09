@@ -1,3 +1,5 @@
+
+<!-- PRERQUIS -->
 # Prérequis d'Installation
 
 ## 🖥️ Configuration Système Requise
@@ -16,7 +18,7 @@
 !!! success "Configuration Optimale"
     - **OS** : Ubuntu 20.04+ ou Debian 11+
     - **CPU** : 8 cores (Intel i7/AMD Ryzen 7+)
-    - **RAM** : 16GB minimum, 32GB recommandé
+    - **RAM** : 32GB recommandé
     - **Espace disque** : 100GB SSD
     - **Réseau** : Connexion Internet haute vitesse
 
@@ -40,6 +42,8 @@ git --version
 vboxmanage --version
 ```
 
+!!! warning "Redémarrer votre machine après l'installation de virtual box"
+
 #### 3. Vagrant
 [hashicorp Vagrant](https://developer.hashicorp.com/vagrant)  
 ```bash
@@ -54,25 +58,6 @@ vagrant --version
 ```bash
 # Vérification
 ansible --version
-```
-
-#### 5. Python et Dépendances
-```bash
-# Installation pywinrm
-pip3 install pywinrm --break-system-packages
-# Vérification
-pip3 list | grep pywinrm
-```
-
-#### 6. Collections Ansible
-```bash
-# Installation des collections requises
-ansible-galaxy collection install trippsc2.adcs
-ansible-galaxy collection install ansible.windows
-ansible-galaxy collection install community.windows
-
-# Vérification
-ansible-galaxy collection list
 ```
 
 ## 🌐 Configuration Réseau
@@ -118,78 +103,7 @@ grep -c -E '(vmx|svm)' /proc/cpuinfo
 # Si résultat > 0, la virtualisation est activée
 # Si résultat = 0, activer dans le BIOS
 ```
-## 🧪 Tests de Validation
 
-### Script de Test Automatique
-
-Créez un script de test pour valider l'installation :
-
-```bash
-cat > test_prerequisites.sh <<EOF
-#!/bin/bash
-# test_prerequisites.sh
-
-echo "=== Test des Prérequis PantheonLab ==="
-
-# Test des commandes de base
-commands=("git" "vagrant" "vboxmanage" "ansible" "python3")
-for cmd in "${commands[@]}"; do
-    if command -v $cmd &> /dev/null; then
-        echo "✅ $cmd installé"
-    else
-        echo "❌ $cmd manquant"
-    fi
-done
-
-# Test VirtualBox
-if vboxmanage --version &> /dev/null; then
-    echo "✅ VirtualBox fonctionnel"
-else
-    echo "❌ VirtualBox non fonctionnel"
-fi
-
-# Test Ansible
-if ansible --version &> /dev/null; then
-    echo "✅ Ansible fonctionnel"
-else
-    echo "❌ Ansible non fonctionnel"
-fi
-
-# Test pywinrm
-if python3 -c "import winrm" &> /dev/null; then
-    echo "✅ pywinrm installé"
-else
-    echo "❌ pywinrm manquant"
-fi
-
-# Test des collections Ansible
-collections=("trippsc2.adcs" "ansible.windows" "community.windows")
-for collection in "${collections[@]}"; do
-    if ansible-galaxy collection list | grep -q "$collection"; then
-        echo "✅ Collection Ansible $collection installée"
-    else
-        echo "❌ Collection Ansible $collection manquante"
-    fi
-done
-
-# Test réseau
-if ping -c 1 8.8.8.8 &> /dev/null; then
-    echo "✅ Connectivité réseau OK"
-else
-    echo "❌ Problème de connectivité"
-fi
-
-# Test virtualisation
-if grep -c -E '(vmx|svm)' /proc/cpuinfo &> /dev/null; then
-    echo "✅ Virtualisation activée"
-else
-    echo "❌ Virtualisation non activée"
-fi
-
-echo "=== Fin des Tests ==="
-EOF
-chmod +x test_prerequisites.sh;./test_prerequisites.sh
-```
 
 ## 🚨 Résolution de Problèmes
 
