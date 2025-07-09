@@ -1,0 +1,24 @@
+name: Audit Python dependencies
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  pip-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Upgrade setuptools
+        run: pip install --upgrade setuptools
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Install pip-audit
+        run: pip install pip-audit
+      - name: Run pip-audit
+        run: pip-audit 
