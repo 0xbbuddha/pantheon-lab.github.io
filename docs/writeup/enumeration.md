@@ -282,7 +282,7 @@ wpscan --url http://192.168.56.10 \
 
 !!! success "Credentials Trouvés"
     - **Utilisateur** : hermes
-    - **Mot de passe** : mondieu
+    - **Mot de passe** : ilovegod
 
 ## 🎯 Analyse de la Vulnérabilité CMP Coming Soon
 
@@ -300,7 +300,7 @@ cd CVE-2025-32118
 
 ```bash
 # Test du POC
-python3 CVE-2025-32118.py -u http://olympe.god/wordpress -un hermes -p mondieu
+python3 CVE-2025-32118.py -u http://olympe.god/wordpress -un hermes -p ilovegod
 ```
 
 !!! warning "Vulnérabilité Confirmée"
@@ -320,7 +320,7 @@ python3 CVE-2025-32118.py -u http://olympe.god/wordpress -un hermes -p mondieu
 
 | Utilisateur | Mot de Passe | Source |
 |-------------|--------------|--------|
-| **hermes** | mondieu | Brute force WordPress |
+| **hermes** | ilovegod | Brute force WordPress |
 
 ### Fichiers Sensibles
 
@@ -334,7 +334,7 @@ python3 CVE-2025-32118.py -u http://olympe.god/wordpress -un hermes -p mondieu
 
 Dans la mythologie grecque, Hermès est le messager des dieux, rapide et rusé. Dans notre lab :
 
-- **Vulnérabilité** : Credentials faibles (hermes:y → hermes:mondieu)
+- **Vulnérabilité** : Credentials faibles (hermes:y → hermes:ilovegod)
 - **Rôle** : Point d'entrée vers l'Olympe numérique
 - **Scénario** : Intercepter les messages divins pour accéder au royaume
 

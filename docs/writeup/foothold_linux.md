@@ -1,6 +1,6 @@
 On trouve un port `22` pour ssh et un port `80` pour http.
 
-Quand on tente d’accéder au port 80, on est rediriger sur l’adresse `pantheaon.lab` 
+Quand on tente d’accéder au port 80, on est rediriger sur l’adresse `pantheaon.god` 
 
 Avec `wapalyzer`, on trouve que le site est sur wordpress, hors souvent avec wordpress, on trouve qu’il y a pléthore de plugins vulnérable, ce qui doit donc nous motiver à trouver un plugins qui pourrait être vulnérable. 
 
@@ -199,7 +199,7 @@ Cependant on fais face à un problème, il faut des credentials pour lancer cett
     ```
     
 
-On lance alors un bruteforce sur la page de login en tant que hermes et avec la wordlist rockyou.txt et on trouve le mots de passe `mondieu` 
+On lance alors un bruteforce sur la page de login en tant que hermes et avec la wordlist rockyou.txt et on trouve le mots de passe `ilovegod` 
 ```bash
 hydra -l hermes -P `fzf-wordlists` olympe.god http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2Folympe.god%2Fwp-admin%2F&testcookie=1:F=Incorrect"
 ```

