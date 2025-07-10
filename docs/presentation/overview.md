@@ -2,11 +2,11 @@
 
 ## 🎯 Qu'est-ce que PantheonLab ?
 
-PantheonLab est un **laboratoire de sécurité informatique** conçu pour l'apprentissage pratique des techniques de pentest et de sécurité Active Directory. Contrairement aux labs traditionnels, PantheonLab se distingue par son approche **thématique et immersive** basée sur la mythologie grecque.
+PantheonLab est un **laboratoire de sécurité informatique** conçu pour l'apprentissage pratique des techniques de pentest linux et Active Directory. Contrairement aux labs traditionnels, PantheonLab se distingue par son approche **thématique et immersive** basée sur la mythologie grecque.
 
 ### 🏛️ Concept
 
-Le projet transforme l'apprentissage de la cybersécurité en une **quête épique**. Cette approche rend l'apprentissage plus engageant et mémorable.
+Ce projet transforme l'apprentissage de la cybersécurité en une **quête épique**. Cette approche rend l'apprentissage plus engageant et mémorable.
 
 ## 🌟 Objectifs Pédagogiques
 
