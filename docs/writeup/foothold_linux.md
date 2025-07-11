@@ -1,8 +1,8 @@
 On trouve un port `22` pour ssh et un port `80` pour http.
 
-Quand on tente d’accéder au port 80, on est rediriger sur l’adresse `pantheaon.god` 
+Quand on tente d'accéder au port 80, on est redirigé sur l'adresse `pantheon.god`
 
-Avec `wapalyzer`, on trouve que le site est sur wordpress, hors souvent avec wordpress, on trouve qu’il y a pléthore de plugins vulnérable, ce qui doit donc nous motiver à trouver un plugins qui pourrait être vulnérable. 
+Avec `Wappalyzer`, on trouve que le site est sur wordpress, hors souvent avec wordpress, on trouve qu'il y a pléthore de plugins vulnérables, ce qui doit donc nous motiver à trouver un plugin qui pourrait être vulnérable.
 
 - Pour cela on peut utiliser l’outils `wp-scan`
     

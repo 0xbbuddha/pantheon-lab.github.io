@@ -1,4 +1,4 @@
-Une fois connecter en tant que hermes, on identifie un group étrange `smbscores`
+Une fois connecté en tant que hermes, on identifie un groupe étrange `smbscores`
 
 ```bash
 hermes@OlympeWordpress:/$ id
@@ -19,7 +19,7 @@ find / -group smbscores 2>/dev/null
 hermes@OlympeWordpress:/$ 
 ```
 
-Bien qu’il n’y est rien dans le fichier `scores.txt` il y à tout de même des credentials dans le fichier `score_update.sh`. Cette fontionnalité permet d’update les scores des jeux sensé bientôt commencer et les envoyer vers un server sur l’ip `192.168.56.11`.
+Bien qu'il n'y ait rien dans le fichier `scores.txt` il y a tout de même des credentials dans le fichier `score_update.sh`. Cette fonctionnalité permet d'update les scores des jeux censés bientôt commencer et les envoyer vers un serveur sur l'ip `192.168.56.11`.
 
 ```
 hermes@OlympeWordpress:/$ cat /srv/pantheon.god/scores/scores.txt
@@ -124,7 +124,7 @@ hermes@OlympeWordpress:/$
     ```
     
 
-On vois avec `netexec` que l’on à affaire à un domain contrôleur.
+On voit avec `netexec` que l'on a affaire à un domain contrôleur.
 
 Ainsi on oublie pas rajouter les information du domaine dans /etc/hosts et /etc/krb5.conf. Et pour ce faire on peut utiliser `netexec`
 
@@ -137,7 +137,7 @@ SMB         192.168.56.11   445    PANTHEON-DC01    [*] Windows 11 / Server 2025
 SMB         192.168.56.11   445    PANTHEON-DC01    [+] pantheon.god\smbscores:Sc0r3sS3rv1c3!2025
 ```
 
-On peut tenter des attaque classique de l’active directory tel que l’`asreprosting` ou  `kerberoasting` qui justement nécessite des identifiant valide pour être exécuter.
+On peut tenter des attaques classiques de l'active directory tel que l'`asreprosting` ou  `kerberoasting` qui justement nécessitent des identifiants valides pour être exécutées.
 Cela nous permet de récupérer 3 utilisateur `kerberoastable`, notre utilisateur courant `smbscores`  dont on connais déjà le mots de pass, le service `svc_thunderB$`, et le service hercule qui semble être au vue du nom, un compte utilisateur fessant office de compte de service, donc potentiellement un utilisateur avec un mots de pass faible et `bruteforçable`. 
 
 D’ailleurs on peut voir que `svc_thunderB$` est un `gmsa` que seul les utilisateur membre du groupe `OLYMPE-SERVICES-MANAGERS` peuvent obtenir le mots de passe.

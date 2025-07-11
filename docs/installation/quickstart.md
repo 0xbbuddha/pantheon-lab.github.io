@@ -45,10 +45,10 @@ Une fois dans le terminal interactif:
 
 | Option | Action                                                                                         |
 |--------|------------------------------------------------------------------------------------------------|
-| 1      | Permet de vérifier les dependances nécessaire au lab ( a lancer avant chaque debut de lab)     |
+| 1      | Permet de vérifier les dépendances nécessaires au lab ( a lancer avant chaque début de lab)     |
 | 2      | Lance le lab                                                                                   |
-| 3      | Donne des information générale sur l'état des VMs dans le lab                                  |
-| 4      | Détruis complètement le lab et toute les ressources associées                                  |
+| 3      | Donne des informations générales sur l'état des VMs dans le lab                                  |
+| 4      | Détruit complètement le lab et toutes les ressources associées                                  |
 | 5      | Aide                                                                                           |
 | q      | Quitter                                                                                        |
 

@@ -42,7 +42,7 @@ git --version
 vboxmanage --version
 ```
 
-!!! warning "Redémarrer votre machine après l'installation de virtual box"
+!!! warning "Redémarrer votre machine après l'installation de VirtualBox"
 
 #### 3. Vagrant
 [hashicorp Vagrant](https://developer.hashicorp.com/vagrant)  

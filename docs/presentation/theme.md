@@ -8,7 +8,7 @@ PantheonLab plonge les utilisateurs dans un univers unique où la cybersécurit�
 
 ### L'Histoire du Lab
 
-Dans cette première édition, vous êtes un peu un transgresseur. Des jeux vont être organiser par les dieux mais votre impatience vous guide, ainsi vous décidé d'explorer les alentour de l'olympe pour y trouver des failles. Votre curiosité ne manquera pas de vous emporter dans une machination interne.
+Dans cette première édition, vous êtes un transgresseur. Des jeux vont être organisés par les dieux mais votre impatience vous guide, ainsi vous décidez d'explorer les alentours de l'olympe pour y trouver des failles. Votre curiosité ne manquera pas de vous emporter dans une machination interne.
 
 ### Immersion Totale
 

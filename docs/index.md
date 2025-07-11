@@ -10,7 +10,7 @@ PantheonLab est un lab immersif et modulaire dédié à l'apprentissage de la s�
 
 ### 🎯 Objectif du Projet
 
-Ce lab propose un environnement prêts à l'emploi pour tester ces compétences en pentest linux et active directory :
+Ce lab propose un environnement prêt à l'emploi pour tester ces compétences en pentest linux et active directory :
 
 - 🔍 **Passionnés de cybersécurité**
 - 👨‍🏫 **Formateurs et enseignants**

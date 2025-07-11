@@ -15,7 +15,7 @@
     
     💡 **Utilisez ce writeup comme** :
     - Une **validation** de votre approche après avoir trouvé
-    - Une **aide** quand vous êtes vraiment bloqué (eviter cette page car elle résumer beaucoup de choses simultanément.)
+    - Une **aide** quand vous êtes vraiment bloqué (évitez cette page car elle résume beaucoup de choses simultanément.)
     - Une **source d'apprentissage** pour comprendre les techniques
 
 ## 🎯 Objectif du Lab

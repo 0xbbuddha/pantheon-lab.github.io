@@ -30,7 +30,7 @@ Nmap done: 256 IP addresses (5 hosts up) scanned in 12.95 seconds
 ```
 
 !!! success "Découverte"
-    Trois machines sont visible sur le réseau :  
+    Trois machines sont visibles sur le réseau :  
     - **192.168.56.10**  
     - **192.168.56.11**
     - **192.168.56.12**
