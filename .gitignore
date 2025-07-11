@@ -1,0 +1,25 @@
+# Dossier généré par MkDocs
+site/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Fichiers de cache
+.cache/
+__pycache__/
+
+# Fichiers d'environnement virtuel
+venv/
+env/
+.venv/
+
+# Fichiers d'IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Fichiers système
+.DS_Store
+Thumbs.db 
