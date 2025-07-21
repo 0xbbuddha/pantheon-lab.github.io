@@ -17,7 +17,7 @@ Cette documentation utilise un **workflow unique** GitHub Actions qui :
 
 ## 📖 Accès à la Documentation
 
-🌐 **Site web** : https://pantheon-lab.github.io/
+🌐 **Site web** : [https://pantheon-lab.github.io/](https://0xbbuddha.github.io/pantheon-lab.github.io/index.html)
 
 La documentation est automatiquement mise à jour à chaque modification du code source.
 
